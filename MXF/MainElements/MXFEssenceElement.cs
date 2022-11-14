@@ -60,8 +60,11 @@ namespace Myriadbits.MXF
             get
             {
                 if (this.Partition == null) return this.Offset; // Unknown
-                if (this.Partition.FirstPictureEssenceElement == null) return this.Offset; // Unknown
-                return (this.Offset - this.Partition.FirstPictureEssenceElement.Offset) + ((long)this.Partition.BodyOffset);
+                if (this.Partition.FirstPictureEssenceElement != null) 
+                    return (this.Offset - this.Partition.FirstPictureEssenceElement.Offset) + ((long)this.Partition.BodyOffset);
+                if (this.Partition.FirstSoundEssenceElement != null)
+                    return (this.Offset - this.Partition.FirstSoundEssenceElement.Offset) + ((long)this.Partition.BodyOffset); 
+                return this.Offset; // Unknown
             }
         }
 

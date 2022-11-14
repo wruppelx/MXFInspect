@@ -102,6 +102,9 @@ namespace Myriadbits.MXF
         public MXFEssenceElement FirstPictureEssenceElement { get; set; }
 
         [Browsable(false)]
+        public MXFEssenceElement FirstSoundEssenceElement { get; set; }
+
+        [Browsable(false)]
         public Dictionary<UInt16, MXFEntryPrimer> PrimerKeys { get; set; }
 
         [Browsable(false)]
