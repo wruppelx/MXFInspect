@@ -21,33 +21,10 @@
 //
 #endregion
 
-using Myriadbits.MXF.Utils;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using Myriadbits.MXF.Identifiers;
-
 namespace Myriadbits.MXF
 {
 	public class MXFDCTimedTextDescriptor : MXFGenericDataEssenceDescriptor
 	{
-        private const string CATEGORYNAME = "DCTimedTextDescriptor";
-        private const int CATEGORYPOS = 5;
-        static readonly Dictionary<string, MXFShortKey> knownSymbols = SymbolDictionary.GetKeys();
-        private bool ParamsInitiated = false;
-        private MXFShortKey ul_key;
-        private MXFKey soundEssenceBlockAlign_Key;
-        private MXFKey soundEssenceAverageBytesPerSecond_Key;
-        private MXFKey soundEssenceSequenceOffset_Key;
-
-        [SortedCategory(CATEGORYNAME, CATEGORYPOS)]
-        public UInt16 MGASoundEssenceBlockAlign { get; set; }
-
-        [SortedCategory(CATEGORYNAME, CATEGORYPOS)]
-        public UInt32 MGASoundEssenceAverageBytesPerSecond { get; set; }
-
-        [SortedCategory(CATEGORYNAME, CATEGORYPOS)]
-        public Byte? MGASoundEssenceSequenceOffset { get; set; }
         /// <summary>
         /// Constructor, set the correct descriptor name
         /// </summary>
