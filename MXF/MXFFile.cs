@@ -370,6 +370,8 @@ namespace Myriadbits.MXF
                             currentPartition.FirstPictureEssenceElement = ee;
                         if (ee.IsSound && currentPartition.FirstSoundEssenceElement == null)
                             currentPartition.FirstSoundEssenceElement = ee;
+                        if (ee.IsData && currentPartition.FirstDataEssenceElement == null)
+                            currentPartition.FirstDataEssenceElement = ee;
                         currentPartition.AddChild(klv);
                     }
                     else
