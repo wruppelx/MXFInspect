@@ -27,6 +27,8 @@ namespace Myriadbits.MXF.Identifiers
     {
         public string Name { get; set; }
 
+        public string Symbol { get; set; }
+
         public string Definition { get; set; }
 
         public string DefiningDocument { get; set; }

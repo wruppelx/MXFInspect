@@ -60,5 +60,14 @@ namespace Myriadbits.MXF.Identifiers
             return string.Format(string.Format("{0:X16}.{1:X16}", this.Key1, this.Key2));
         }
 
+        public UInt64 GetKey1()
+        {
+            return this.Key1;
+        }
+
+        public UInt64 GetKey2()
+        {
+            return this.Key2;
+        }
     };
 }

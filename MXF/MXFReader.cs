@@ -463,6 +463,19 @@ namespace Myriadbits.MXF
             return (MXFUserDataMode)this.ReadByte();
         }
 
+        public MXFJ2KExtendedCapabilities ReadJ2KExtendedCapabilities(int ccapi_size)
+        {
+            var pcap = this.ReadUInt32();
+            var cccapi = this.ReadArray<UInt16>(this.ReadUInt16, ccapi_size);
+            var componentSize = sizeof(UInt32) + cccapi.Length * sizeof(UInt16);
+            return new MXFJ2KExtendedCapabilities
+            {
+                Pcap = pcap,
+                Ccapi = cccapi,
+                ComponentSize = (byte)componentSize
+            };
+        }
+
         public T[] ReadArray<T>(Func<T> readFunction, int count)
         {
             T[] retval = new T[count];

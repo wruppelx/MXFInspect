@@ -44,6 +44,9 @@ namespace Myriadbits.MXF
         private readonly MXFKey codingStyleDefault = new MXFKey(0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x0a, 0x04, 0x01, 0x06, 0x03, 0x0c, 0x00, 0x00, 0x00);
         private readonly MXFKey quantizationDefault = new MXFKey(0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x0a, 0x04, 0x01, 0x06, 0x03, 0x0d, 0x00, 0x00, 0x00);
         private readonly MXFKey j2CLayout = new MXFKey(0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x0e, 0x04, 0x01, 0x06, 0x03, 0x0e, 0x00, 0x00, 0x00);
+        private readonly MXFKey j2KExtendedCapabilities = new MXFKey(0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x0e, 0x04, 0x01, 0x06, 0x03, 0x0f, 0x00, 0x00, 0x00);
+        private readonly MXFKey j2KProfile = new MXFKey(0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x0e, 0x04, 0x01, 0x06, 0x03, 0x10, 0x00, 0x00, 0x00);
+        private readonly MXFKey j2KCorrespondingProfile = new MXFKey(0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x0e, 0x04, 0x01, 0x06, 0x03, 0x11, 0x00, 0x00, 0x00);
 
 
         [Category(CATEGORYNAME)]
@@ -91,6 +94,15 @@ namespace Myriadbits.MXF
         [Category(CATEGORYNAME)]
         public MXFRGBAComponent[] J2CLayout { get; set; }
 
+        [Category(CATEGORYNAME)]
+        public MXFJ2KExtendedCapabilities J2KExtendedCapabilities { get; set; }
+
+        [Category(CATEGORYNAME)]
+        public UInt16[]? J2KProfile { get; set; }
+
+        [Category(CATEGORYNAME)]
+        public UInt16[]? J2KCorrespondingProfile { get; set; }
+
 
         public MXFJPEG2000SubDescriptor(MXFReader reader, MXFKLV headerKLV)
             : base(reader, headerKLV, "JPEG2000SubDescriptor")
@@ -128,6 +140,15 @@ namespace Myriadbits.MXF
                         return true;
                     case var _ when localTag.Key == j2CLayout:
                         this.J2CLayout = reader.ReadRGBALayout();
+                        return true;
+                    case var _ when localTag.Key == j2KExtendedCapabilities:
+                        this.J2KExtendedCapabilities = reader.ReadJ2KExtendedCapabilities((localTag.Size - 4)/ 2);
+                        return true;
+                    case var _ when localTag.Key == j2KProfile:
+                        this.J2KProfile = reader.ReadArray<UInt16>(reader.ReadUInt16, localTag.Size/2);
+                        return true;
+                    case var _ when localTag.Key == j2KCorrespondingProfile:
+                        this.J2KCorrespondingProfile = reader.ReadArray<UInt16>(reader.ReadUInt16, localTag.Size / 2);
                         return true;
                 }
             }

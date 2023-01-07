@@ -2,13 +2,14 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net5.0-windows</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <RootNamespace>Myriadbits.MXFInspect</RootNamespace>
     <AssemblyName>MXFInspect</AssemblyName>
     <StartupObject>Myriadbits.MXFInspect.Program</StartupObject> 
     <ApplicationIcon>MXFInspect.ico</ApplicationIcon> 
+    <Platforms>AnyCPU;x64;ARM64</Platforms> 
   </PropertyGroup>
   
   <ItemGroup>

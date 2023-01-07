@@ -21,14 +21,64 @@
 //
 #endregion
 
+using System;
+using System.ComponentModel;
+using System.Collections.Generic;
+using Myriadbits.MXF.Identifiers;
+using Myriadbits.MXF.Utils;
+
 namespace Myriadbits.MXF
 {
-	public class MXFAudioChannelLabelSubDescriptor : MXFMCALabelSubDescriptor
+    public class MXFAudioChannelLabelSubDescriptor : MXFMCALabelSubDescriptor
     {
-		public MXFAudioChannelLabelSubDescriptor(MXFReader reader, MXFKLV headerKLV)
-			: base(reader, headerKLV)
-		{
-			this.MetaDataName = "AudioChannelLabelSubDescriptor";
-		}
-	}
+        private const string CATEGORYNAME = "Audio Channel Label SubDescriptor";
+        private const int CATEGORYPOS = 4;
+        static readonly Dictionary<string, MXFShortKey> knownSymbols = SymbolDictionary.GetKeys();
+        private bool ParamsInitiated = false;
+        private MXFShortKey ul_key;
+
+        private MXFKey SoundfieldGroupLinkID_Key;
+
+        [SortedCategory(CATEGORYNAME, CATEGORYPOS)]
+        public MXFUUID SoundfieldGroupLinkID { get; set; }
+
+        public MXFAudioChannelLabelSubDescriptor(MXFReader reader, MXFKLV headerKLV)
+            : base(reader, headerKLV, "Audio Channel Label SubDescriptor")
+        {
+        }
+
+        public MXFAudioChannelLabelSubDescriptor(MXFReader reader, MXFKLV headerKLV, string name) : base(reader, headerKLV, name)
+        {
+        }
+
+
+        /// <summary>
+        /// Set ULs for all elements
+        /// </summary>
+        private void InitParms()
+        {
+            if (knownSymbols.TryGetValue("SoundfieldGroupLinkID", out ul_key))
+                SoundfieldGroupLinkID_Key = new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key));
+
+            ParamsInitiated = true;
+        }
+
+        /// <summary>
+        /// Overridden method to process local tags
+        /// </summary>
+        /// <param name="localTag"></param>
+        protected override bool ParseLocalTag(MXFReader reader, MXFLocalTag localTag)
+        {
+            if (!ParamsInitiated) InitParms();
+            if (localTag.Key != null)
+            {
+                switch (localTag.Key)
+                {
+                    case var _ when localTag.Key == SoundfieldGroupLinkID_Key: this.SoundfieldGroupLinkID = reader.ReadUUIDKey(); return true;
+                }
+            }
+            return base.ParseLocalTag(reader, localTag);
+        }
+
+    }
 }

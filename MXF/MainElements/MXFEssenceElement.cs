@@ -51,6 +51,8 @@ namespace Myriadbits.MXF
         public byte ElementNumber { get; set; }
         [Browsable(false)]
         public bool IsPicture { get; set; }
+        public bool IsSound { get; set; }
+        public bool IsData { get; set; }
 
         [Category(CATEGORYNAME)]
         public long EssenceOffset
@@ -58,8 +60,13 @@ namespace Myriadbits.MXF
             get
             {
                 if (this.Partition == null) return this.Offset; // Unknown
-                if (this.Partition.FirstPictureEssenceElement == null) return this.Offset; // Unknown
-                return (this.Offset - this.Partition.FirstPictureEssenceElement.Offset) + ((long)this.Partition.BodyOffset);
+                if (this.Partition.FirstPictureEssenceElement != null) 
+                    return (this.Offset - this.Partition.FirstPictureEssenceElement.Offset) + ((long)this.Partition.BodyOffset);
+                if (this.Partition.FirstSoundEssenceElement != null)
+                    return (this.Offset - this.Partition.FirstSoundEssenceElement.Offset) + ((long)this.Partition.BodyOffset);
+                if (this.Partition.FirstDataEssenceElement != null)
+                    return (this.Offset - this.Partition.FirstDataEssenceElement.Offset) + ((long)this.Partition.BodyOffset);
+                return this.Offset; // Unknown
             }
         }
 
@@ -75,6 +82,8 @@ namespace Myriadbits.MXF
             else
                 this.ItemType = "<unknown>";
             this.IsPicture = (this.Key[12] == 0x05 || this.Key[12] == 0x15);
+            this.IsSound = (this.Key[12] == 0x06 || this.Key[12] == 0x16);
+            this.IsData = (this.Key[12] == 0x07 || this.Key[12] == 0x17);
             this.ElementCount = this.Key[13];
             this.ElementType = this.Key[14];
             this.ElementNumber = this.Key[15];

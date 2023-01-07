@@ -46,7 +46,7 @@ namespace Myriadbits.MXF
 
         [Category(CATEGORYNAME)]
         [ULElement("urn:smpte:ul:060e2b34.01010104.01030404.00000000")]
-        public UInt32? EssenceSID { get; set; }
+        public UInt32? BodySID { get; set; }
 
         [Category(CATEGORYNAME)]
         [ULElement("urn:smpte:ul:060e2b34.0101010e.04040504.00000000")]
@@ -90,7 +90,7 @@ namespace Myriadbits.MXF
             {
                 case 0x2701: this.LinkedPackageID = reader.ReadUMIDKey(); return true;
                 case 0x3F06: this.IndexSID = reader.ReadUInt32(); return true;
-                case 0x3F07: this.EssenceSID = reader.ReadUInt32(); return true;
+                case 0x3F07: this.BodySID = reader.ReadUInt32(); return true;
                 case 0x2702: this.EssenceStream = reader.ReadArray(reader.ReadByte, localTag.Size); return true;
                 case 0x2B01: this.SampleIndex = reader.ReadArray(reader.ReadByte, localTag.Size); return true;
                 case var _ when localTag.Key == precedingIndexTable_Key: this.PrecedingIndexTable = reader.ReadBool(); return true;

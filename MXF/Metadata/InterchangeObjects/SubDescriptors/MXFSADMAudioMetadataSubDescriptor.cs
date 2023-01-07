@@ -25,39 +25,40 @@ using System;
 using System.ComponentModel;
 using System.Collections.Generic;
 using Myriadbits.MXF.Identifiers;
-using Myriadbits.MXF.Utils;
 
 namespace Myriadbits.MXF
 {
-    public class MXFSoundfieldGroupLabelSubDescriptor : MXFMCALabelSubDescriptor
+    public class MXFSADMAudioMetadataSubDescriptor : MXFSubDescriptor
     {
-        private const string CATEGORYNAME = "Soundfield Group Label SubDescriptor";
-        private const int CATEGORYPOS = 4;
+        private const string CATEGORYNAME = "SADMAudioMetadataSubDescriptor";
         static readonly Dictionary<string, MXFShortKey> knownSymbols = SymbolDictionary.GetKeys();
         private bool ParamsInitiated = false;
         private MXFShortKey ul_key;
 
-        private MXFKey GroupOfSoundfieldGroupsLinkID_Key;
+        private MXFKey SADMMetadataSectionLinkID_Key;
+        private MXFKey SADMProfileLevelULBatch_Key;
 
-        [SortedCategory(CATEGORYNAME, CATEGORYPOS)]
-        public MXFUUID[]? GroupOfSoundfieldGroupsLinkID { get; set; }
-       
-        public MXFSoundfieldGroupLabelSubDescriptor(MXFReader reader, MXFKLV headerKLV)
-            : base(reader, headerKLV, "Soundfield Group Label SubDescriptor")
+        [Category(CATEGORYNAME)]
+        public MXFUUID SADMMetadataSectionLinkID { get; set; }
+
+        [Category(CATEGORYNAME)]
+        public MXFUUID[] SADMProfileLevelULBatch { get; set; }
+
+
+        public MXFSADMAudioMetadataSubDescriptor(MXFReader reader, MXFKLV headerKLV)
+            : base(reader, headerKLV, "S-ADM Audio Metadata SubDescriptor")
         {
         }
 
-        public MXFSoundfieldGroupLabelSubDescriptor(MXFReader reader, MXFKLV headerKLV, string name)
-            : base(reader, headerKLV, name)
-        {
-        }
         /// <summary>
         /// Set ULs for all elements
         /// </summary>
         private void InitParms()
         {
-            if (knownSymbols.TryGetValue("GroupOfSoundfieldGroupsLinkID", out ul_key))
-                GroupOfSoundfieldGroupsLinkID_Key = new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key));
+            if (knownSymbols.TryGetValue("SADMMetadataSectionLinkID", out ul_key))
+                SADMMetadataSectionLinkID_Key = new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key));
+            if (knownSymbols.TryGetValue("SADMProfileLevelULBatch", out ul_key))
+                SADMProfileLevelULBatch_Key = new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key));
             ParamsInitiated = true;
         }
 
@@ -72,7 +73,8 @@ namespace Myriadbits.MXF
             {
                 switch (localTag.Key)
                 {
-                    case var _ when localTag.Key == GroupOfSoundfieldGroupsLinkID_Key: UInt32 num = reader.ReadUInt32(); reader.Skip(4); this.GroupOfSoundfieldGroupsLinkID = reader.ReadArray(reader.ReadUUIDKey, (int)num); return true;
+                    case var _ when localTag.Key == SADMMetadataSectionLinkID_Key: this.SADMMetadataSectionLinkID = reader.ReadUUIDKey(); return true;
+                    case var _ when localTag.Key == SADMProfileLevelULBatch_Key: UInt32 num = reader.ReadUInt32();  reader.Skip(4);  this.SADMProfileLevelULBatch = reader.ReadArray(reader.ReadUUIDKey, (int)num); return true;
                 }
             }
             return base.ParseLocalTag(reader, localTag);

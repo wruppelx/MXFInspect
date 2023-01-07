@@ -22,30 +22,21 @@
 #endregion
 
 using System;
-using System.Collections.Generic;
 
 namespace Myriadbits.MXF
-{	
-	public class MXFANCFrameElement : MXFEssenceElement
-	{
-		private static Dictionary<int, string> m_itemTypes = new Dictionary<int, string>();
+{
+    //namespace http://www.smpte-ra.org/reg/2003/2012 	
+    public class MXFJ2KExtendedCapabilities
+    {
+        public UInt32 Pcap { get; set; }
+        public UInt16[] Ccapi { get; set; }
+        public byte ComponentSize { get; set; }
 
-		public MXFANCFrameElement(MXFReader reader, MXFKLV headerKLV)
-			: base(reader, headerKLV)
-		{
-			UInt16 nofPackets = reader.ReadUInt16();
-			for(int n = 0; n < nofPackets; n++)
-			{
-				MXFANCPacket newpacket = new MXFANCPacket(reader);
-				this.AddChild(newpacket);
-			}
-		}
-		
-		public override string ToString()
-		{
-			if (this.Children != null)
-				return string.Format("ANC Frame Element [packets {0}]", this.Children.Count);
-			return string.Format("ANC Frame Element [packets 0]");
-		}
-	}
+        public override string ToString()
+        {
+            string ccapi_string = "";
+            for (int i = 0; i < Ccapi.Length; i++) ccapi_string += Ccapi[i].ToString() + " ";
+            return string.Format("(Pcap: 0x{0:X} Ccapi[]: {1})", Pcap, ccapi_string);
+        }
+    }
 }

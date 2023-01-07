@@ -27,61 +27,21 @@ using System.ComponentModel;
 
 namespace Myriadbits.MXF
 {
-    public class MXFGenericSoundEssenceDescriptor : MXFFileDescriptor
+    public class MXFIABEssenceDescriptor : MXFGenericSoundEssenceDescriptor
     {
-        private const string CATEGORYNAME = "GenericSoundEssenceDescriptor";
-        private const int CATEGORYPOS = 4;
+        private const string CATEGORYNAME = "IAB Essence Descriptor";
+        private const int CATEGORYPOS = 5;
 
         private readonly MXFKey refImageEditRate_Key = new MXFKey(0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x0e, 0x04, 0x02, 0x01, 0x01, 0x06, 0x00, 0x00, 0x00);
         private readonly MXFKey refAudioAlignmentLevel = new MXFKey(0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x0e, 0x04, 0x02, 0x01, 0x01, 0x07, 0x00, 0x00, 0x00);
-
-        [SortedCategory(CATEGORYNAME, CATEGORYPOS)]
-        [ULElement("urn:smpte:ul:060e2b34.01010105.04020301.01010000")]
-        public MXFRational AudioSamplingRate { get; set; }
-
-        [SortedCategory(CATEGORYNAME, CATEGORYPOS)]
-        [ULElement("urn:smpte:ul:060e2b34.01010104.04020301.04000000")]
-        public bool? Locked { get; set; }
-        
-        [SortedCategory(CATEGORYNAME, CATEGORYPOS)]
-        [ULElement("urn:smpte:ul:060e2b34.01010101.04020101.03000000")]
-        public sbyte? AudioRefLevel { get; set; }
-
-        [SortedCategory(CATEGORYNAME, CATEGORYPOS)]
-        [ULElement("urn:smpte:ul:060e2b34.01010101.04020101.01000000")]
-        public MXFElectroSpatialFormulation? ElectroSpatialFormulation { get; set; }
-        
-        [SortedCategory(CATEGORYNAME, CATEGORYPOS)]
-        [ULElement("urn:smpte:ul:060e2b34.01010105.04020101.04000000")]
-        public UInt32? ChannelCount { get; set; }
-
-        [SortedCategory(CATEGORYNAME, CATEGORYPOS)]
-        [ULElement("urn:smpte:ul:060e2b34.01010104.04020303.04000000")]
-        public UInt32? QuantizationBits { get; set; }
-        
-        [SortedCategory(CATEGORYNAME, CATEGORYPOS)]
-        [ULElement("urn:smpte:ul:060e2b34.01010105.04020701.00000000")]
-        public sbyte? DialNorm { get; set; }
-        
-        [SortedCategory(CATEGORYNAME, CATEGORYPOS)]
-        [ULElement("urn:smpte:ul:060e2b34.01010102.04020402.00000000")]
-        public MXFKey SoundEssenceCoding { get; set; }
-        
-        [SortedCategory(CATEGORYNAME, CATEGORYPOS)]
-        [ULElement("urn:smpte:ul:060e2b34.0101010e.04020101.06000000")]
-        public MXFRational ReferenceImageEditRate { get; set; }
-        
-        [SortedCategory(CATEGORYNAME, CATEGORYPOS)]
-        [ULElement("urn:smpte:ul:060e2b34.0101010e.04020101.07000000")]
-        public byte? ReferenceAudioAlignmentLevel { get; set; }
 
         /// <summary>
         /// Constructor, set the correct descriptor name
         /// </summary>
         /// <param name="reader"></param>
         /// <param name="headerKLV"></param>
-        public MXFGenericSoundEssenceDescriptor(MXFReader reader, MXFKLV headerKLV)
-            : base(reader, headerKLV, "Generic Sound Essence Descriptor")
+        public MXFIABEssenceDescriptor(MXFReader reader, MXFKLV headerKLV)
+            : base(reader, headerKLV, "IAB Essence Descriptor")
         {
         }
 
@@ -90,7 +50,7 @@ namespace Myriadbits.MXF
         /// </summary>
         /// <param name="reader"></param>
         /// <param name="headerKLV"></param>
-        public MXFGenericSoundEssenceDescriptor(MXFReader reader, MXFKLV headerKLV, string metadataName)
+        public MXFIABEssenceDescriptor(MXFReader reader, MXFKLV headerKLV, string metadataName)
             : base(reader, headerKLV, metadataName)
         {
         }

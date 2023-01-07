@@ -212,6 +212,22 @@ namespace Myriadbits.MXF
         }
 
         /// <summary>
+        /// Static method for converting an MXFShortKey to an array appropriate for the constructur of this class
+        /// </summary>
+        public static byte[] MXFShortKeytoByteArray(MXFShortKey shortKey, bool isDescriptor = false)
+        {
+            byte[] ul_bytes = new byte[16];
+            for (int i = 0; i < 8; i++)
+            {
+                ul_bytes[7 - i] = (byte)((shortKey.GetKey1() >> (8 * i)) & 0xFF);
+                ul_bytes[15 - i] = (byte)((shortKey.GetKey2() >> (8 * i)) & 0xFF);
+            }
+            if (isDescriptor) ul_bytes[5] = 0x53;
+
+            return ul_bytes;
+        }
+
+        /// <summary>
         /// Locate the key name (if found)
         /// </summary>
         private void FindKeyName()
