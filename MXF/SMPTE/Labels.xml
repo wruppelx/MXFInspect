@@ -6,7 +6,7 @@
 <!-- ************************************* -->
 <!-- ************************************* -->
 <!--  -->
-<!-- DRAFT REGISTER -->
+<!-- REGISTER WITH A SUBMISSION APPLIED FOR ANALYSIS PURPOSES -->
 <!--  -->
 <!-- SMPTE METADATA REGISTER -->
 <!-- ####################### -->
@@ -2603,6 +2603,17 @@
     <Entry>
       <Register>Labels</Register>
       <NamespaceName>http://www.smpte-ra.org/reg/400/2012</NamespaceName>
+      <Symbol>ADMSoundfield</Symbol>
+      <UL>urn:smpte:ul:060e2b34.0401010d.03020223.00000000</UL>
+      <Kind>LEAF</Kind>
+      <Name>ADM Soundfield</Name>
+      <Definition>Identifies a Soundfield described by Audio Definition Model (ADM) metadata</Definition>
+      <DefiningDocument>SMPTE ST 2131</DefiningDocument>
+      <IsDeprecated>false</IsDeprecated>
+    </Entry>
+    <Entry>
+      <Register>Labels</Register>
+      <NamespaceName>http://www.smpte-ra.org/reg/400/2012</NamespaceName>
       <Symbol>ST37742sg</Symbol>
       <UL>urn:smpte:ul:060e2b34.0401010d.03020230.01000000</UL>
       <Kind>NODE</Kind>
@@ -3518,61 +3529,6 @@
       <Name>Uncompressed Picture Coding Planar 420 YCbCr 8-bit</Name>
       <Definition>Identifies Uncompressed Picture Coding Planar 420 YCbCr 8-bit</Definition>
       <DefiningDocument>SMPTE ST 377-1</DefiningDocument>
-      <IsDeprecated>false</IsDeprecated>
-    </Entry>
-    <Entry>
-      <Register>Labels</Register>
-      <NamespaceName>http://www.smpte-ra.org/reg/400/2012</NamespaceName>
-      <Symbol>ARRIRAWCoding12bit</Symbol>
-      <UL>urn:smpte:ul:060e2b34.0401010d.04010201.02010101</UL>
-      <Kind>LEAF</Kind>
-      <Name>ARRIRAW Essence 12-bit Coding</Name>
-      <Definition>Identifies ARRIRAW Uncompressed 12-bit Picture Coding</Definition>
-      <DefiningDocument>SMPTE RDD 54</DefiningDocument>
-      <IsDeprecated>false</IsDeprecated>
-    </Entry>
-    <Entry>
-      <Register>Labels</Register>
-      <NamespaceName>http://www.smpte-ra.org/reg/400/2012</NamespaceName>
-      <Symbol>ARRIRAWCoding12bitReverse</Symbol>
-      <UL>urn:smpte:ul:060e2b34.0401010d.04010201.02010102</UL>
-      <Kind>LEAF</Kind>
-      <Name>ARRIRAW Essence 12-bit Reverse Coding</Name>
-      <Definition>Identifies ARRIRAW Uncompressed 12-bit Reverse Picture Coding</Definition>
-      <DefiningDocument>SMPTE RDD 54</DefiningDocument>
-      <IsDeprecated>false</IsDeprecated>
-    </Entry>
-    <Entry>
-      <Register>Labels</Register>
-      <NamespaceName>http://www.smpte-ra.org/reg/400/2012</NamespaceName>
-      <Symbol>ARRIRAWCoding13bit</Symbol>
-      <UL>urn:smpte:ul:060e2b34.0401010d.04010201.02010103</UL>
-      <Kind>LEAF</Kind>
-      <Name>ARRIRAW Essence 13-bit Coding</Name>
-      <Definition>Identifies ARRIRAW Uncompressed 13-bit Picture Coding</Definition>
-      <DefiningDocument>SMPTE RDD 54</DefiningDocument>
-      <IsDeprecated>false</IsDeprecated>
-    </Entry>
-    <Entry>
-      <Register>Labels</Register>
-      <NamespaceName>http://www.smpte-ra.org/reg/400/2012</NamespaceName>
-      <Symbol>ARRIRAWCodingHighDensity12bit</Symbol>
-      <UL>urn:smpte:ul:060e2b34.0401010d.04010201.02010201</UL>
-      <Kind>LEAF</Kind>
-      <Name>ARRIRAW Essence 12-bit High Density Coding</Name>
-      <Definition>Identifies ARRIRAW High Density 12-bit Picture Coding</Definition>
-      <DefiningDocument>SMPTE RDD 54</DefiningDocument>
-      <IsDeprecated>false</IsDeprecated>
-    </Entry>
-    <Entry>
-      <Register>Labels</Register>
-      <NamespaceName>http://www.smpte-ra.org/reg/400/2012</NamespaceName>
-      <Symbol>ARRIRAWCodingHighDensity13bit</Symbol>
-      <UL>urn:smpte:ul:060e2b34.0401010d.04010201.02010202</UL>
-      <Kind>LEAF</Kind>
-      <Name>ARRIRAW Essence 13-bit High Density Coding</Name>
-      <Definition>Identifies ARRIRAW High Density 13-bit Picture Coding</Definition>
-      <DefiningDocument>SMPTE RDD 54</DefiningDocument>
       <IsDeprecated>false</IsDeprecated>
     </Entry>
     <Entry>
@@ -12147,6 +12103,59 @@
     <Entry>
       <Register>Labels</Register>
       <NamespaceName>http://www.smpte-ra.org/reg/400/2012</NamespaceName>
+      <Symbol>SoundChannelLabelingSMPTEST2131</Symbol>
+      <UL>urn:smpte:ul:060e2b34.0401010d.04020210.05000000</UL>
+      <Kind>NODE</Kind>
+      <Name>Sound Channel Labeling SMPTE ST 2131</Name>
+      <Definition>Identifies Sound Channel Labeling SMPTE ST 2131</Definition>
+      <IsDeprecated>false</IsDeprecated>
+    </Entry>
+    <Entry>
+      <Register>Labels</Register>
+      <NamespaceName>http://www.smpte-ra.org/reg/400/2012</NamespaceName>
+      <Symbol>AudioLabelingFrameworkADMContent</Symbol>
+      <UL>urn:smpte:ul:060e2b34.0401010d.04020210.05010000</UL>
+      <Kind>LEAF</Kind>
+      <Name>Audio Labeling Framework for ADM-described Content</Name>
+      <Definition>Identifies the Audio Labeling Framework for ADM-described Content</Definition>
+      <DefiningDocument>SMPTE ST 2131</DefiningDocument>
+      <IsDeprecated>false</IsDeprecated>
+    </Entry>
+    <Entry>
+      <Register>Labels</Register>
+      <NamespaceName>http://www.smpte-ra.org/reg/400/2012</NamespaceName>
+      <Symbol>ADMAudioMetadataProfilesLevels</Symbol>
+      <UL>urn:smpte:ul:060e2b34.0401010d.04020211.00000000</UL>
+      <Kind>NODE</Kind>
+      <Name>ADM Audio Metadata Profiles and Levels</Name>
+      <Definition>Identifies Audio Definition Model (ADM) Audio Metadata Profiles and Levels</Definition>
+      <DefiningDocument>SMPTE ST 2131</DefiningDocument>
+      <IsDeprecated>false</IsDeprecated>
+    </Entry>
+    <Entry>
+      <Register>Labels</Register>
+      <NamespaceName>http://www.smpte-ra.org/reg/400/2012</NamespaceName>
+      <Symbol>ITU2076ProfilesLevels</Symbol>
+      <UL>urn:smpte:ul:060e2b34.0401010d.04020211.01000000</UL>
+      <Kind>NODE</Kind>
+      <Name>Recommendation ITU-R BS.2076 Profiles and Levels</Name>
+      <Definition>Identifies Recommendation ITU-R BS.2076 Profiles and Levels</Definition>
+      <IsDeprecated>false</IsDeprecated>
+    </Entry>
+    <Entry>
+      <Register>Labels</Register>
+      <NamespaceName>http://www.smpte-ra.org/reg/400/2012</NamespaceName>
+      <Symbol>ADM_ITU2076</Symbol>
+      <UL>urn:smpte:ul:060e2b34.0401010d.04020211.01010000</UL>
+      <Kind>LEAF</Kind>
+      <Name>ADM (Recommendation ITU-R BS.2076)</Name>
+      <Definition>Identifies Audio Definition Model (ADM) metadata conforming to Recommendation ITU-R BS.2076 but not further constrained by any defined Profile or Level</Definition>
+      <DefiningDocument>Recommendation ITU-R BS.2076</DefiningDocument>
+      <IsDeprecated>false</IsDeprecated>
+    </Entry>
+    <Entry>
+      <Register>Labels</Register>
+      <NamespaceName>http://www.smpte-ra.org/reg/400/2012</NamespaceName>
       <Symbol>DataEssence</Symbol>
       <UL>urn:smpte:ul:060e2b34.04010101.04030000.00000000</UL>
       <Kind>NODE</Kind>
@@ -12260,17 +12269,6 @@
       <Name>Right Eye Data Track</Name>
       <Definition>Identifies Data Track Corresponding to Right Eye</Definition>
       <DefiningDocument>SMPTE ST 2070-1</DefiningDocument>
-      <IsDeprecated>false</IsDeprecated>
-    </Entry>
-    <Entry>
-      <Register>Labels</Register>
-      <NamespaceName>http://www.smpte-ra.org/reg/400/2012</NamespaceName>
-      <Symbol>DataStreamDataEssenceCoding</Symbol>
-      <UL>urn:smpte:ul:060e2b34.0401010d.04030301.00000000</UL>
-      <Kind>LEAF</Kind>
-      <Name>Data Stream Data Essence Coding</Name>
-      <Definition>Identifies Data Stream Data Essence Coding</Definition>
-      <DefiningDocument>SMPTE RDD 55</DefiningDocument>
       <IsDeprecated>false</IsDeprecated>
     </Entry>
     <Entry>
@@ -40103,28 +40101,6 @@
     <Entry>
       <Register>Labels</Register>
       <NamespaceName>http://www.smpte-ra.org/reg/400/2012/13/1/aaf</NamespaceName>
-      <Symbol>MXFGCARRIRAWFrameWrappedPacked</Symbol>
-      <UL>urn:smpte:ul:060e2b34.0401010d.0d010301.02220100</UL>
-      <Kind>LEAF</Kind>
-      <Name>ARRIRAW Frame-Wrapped Packed Essence Container</Name>
-      <Definition>Identifier for MXF-GC ARRIRAW Frame-Wrapped Essence Container</Definition>
-      <DefiningDocument>SMPTE RDD 54</DefiningDocument>
-      <IsDeprecated>false</IsDeprecated>
-    </Entry>
-    <Entry>
-      <Register>Labels</Register>
-      <NamespaceName>http://www.smpte-ra.org/reg/400/2012/13/1/aaf</NamespaceName>
-      <Symbol>MXFGCARRIRAWFrameWrappedHDEEncoded</Symbol>
-      <UL>urn:smpte:ul:060e2b34.0401010d.0d010301.02220200</UL>
-      <Kind>LEAF</Kind>
-      <Name>ARRIRAW Frame-Wrapped HDE-Encoded Essence Container</Name>
-      <Definition>Identifier for MXF-GC ARRIRAW Frame-Wrapped High Density Essence Container</Definition>
-      <DefiningDocument>SMPTE RDD 54</DefiningDocument>
-      <IsDeprecated>false</IsDeprecated>
-    </Entry>
-    <Entry>
-      <Register>Labels</Register>
-      <NamespaceName>http://www.smpte-ra.org/reg/400/2012/13/1/aaf</NamespaceName>
       <Symbol>MXFGCFFV1Pictures</Symbol>
       <UL>urn:smpte:ul:060e2b34.0401010d.0d010301.02230000</UL>
       <Kind>NODE</Kind>
@@ -40188,17 +40164,6 @@
       <Name>MXF-GC Clip-wrapped MGA</Name>
       <Definition>Identifies a Clip-wrapped MGA signal</Definition>
       <DefiningDocument>SMPTE ST 2127-1</DefiningDocument>
-      <IsDeprecated>false</IsDeprecated>
-    </Entry>
-    <Entry>
-      <Register>Labels</Register>
-      <NamespaceName>http://www.smpte-ra.org/reg/400/2012/13/1/aaf</NamespaceName>
-      <Symbol>MXFGCSupplementalDataFrameWrapped</Symbol>
-      <UL>urn:smpte:ul:060e2b34.0401010d.0d010301.02260100</UL>
-      <Kind>LEAF</Kind>
-      <Name>Supplemental Data Essence Container</Name>
-      <Definition>Identifies an MXF-GC Supplemental Data Element Frame-Wrapped Essence Container</Definition>
-      <DefiningDocument>SMPTE RDD 55</DefiningDocument>
       <IsDeprecated>false</IsDeprecated>
     </Entry>
     <Entry>
@@ -42137,39 +42102,6 @@
       <Name>MXF-GC IAData Frame Wrapped</Name>
       <Definition>Identifies Container for Frame Wrapped Immersive Audio Data</Definition>
       <DefiningDocument>SMPTE ST 429-18</DefiningDocument>
-      <IsDeprecated>false</IsDeprecated>
-    </Entry>
-    <Entry>
-      <Register>Labels</Register>
-      <NamespaceName>http://www.smpte-ra.org/reg/400/2012/14/9</NamespaceName>
-      <Symbol>UTF8TextDataEssenceCoding</Symbol>
-      <UL>urn:smpte:ul:060e2b34.04010105.0e090606.00000000</UL>
-      <Kind>LEAF</Kind>
-      <Name>UTF-8 Text Data Essence Coding</Name>
-      <Definition>Identifies UTF-8 Text Data Essence Coding</Definition>
-      <DefiningDocument>SMPTE ST 2067-202</DefiningDocument>
-      <IsDeprecated>false</IsDeprecated>
-    </Entry>
-    <Entry>
-      <Register>Labels</Register>
-      <NamespaceName>http://www.smpte-ra.org/reg/400/2012/14/9</NamespaceName>
-      <Symbol>PHDRImageMetadataWrappingFrame</Symbol>
-      <UL>urn:smpte:ul:060e2b34.04010105.0e090607.01010101</UL>
-      <Kind>LEAF</Kind>
-      <Name>PHDR Image Metadata Wrapping Frame</Name>
-      <Definition>Identifies a frame of wrapped PHDR image metadata</Definition>
-      <DefiningDocument>SMPTE RDD 56</DefiningDocument>
-      <IsDeprecated>false</IsDeprecated>
-    </Entry>
-    <Entry>
-      <Register>Labels</Register>
-      <NamespaceName>http://www.smpte-ra.org/reg/400/2012/14/9</NamespaceName>
-      <Symbol>FrameWrappedISXDContainer</Symbol>
-      <UL>urn:smpte:ul:060e2b34.04010105.0e090607.01010103</UL>
-      <Kind>LEAF</Kind>
-      <Name>Frame Wrapped ISXD Container</Name>
-      <Definition>Identifies Frame Wrapped ISXD Container</Definition>
-      <DefiningDocument>SMPTE ST 2067-202</DefiningDocument>
       <IsDeprecated>false</IsDeprecated>
     </Entry>
     <Entry>

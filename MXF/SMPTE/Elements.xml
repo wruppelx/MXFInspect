@@ -6,7 +6,7 @@
 <!-- ************************************* -->
 <!-- ************************************* -->
 <!--  -->
-<!-- DRAFT REGISTER -->
+<!-- REGISTER WITH A SUBMISSION APPLIED FOR ANALYSIS PURPOSES -->
 <!--  -->
 <!-- SMPTE METADATA REGISTER -->
 <!-- ####################### -->
@@ -2215,19 +2215,6 @@
       <ContextScope>UnknownContext</ContextScope>
       <Type>urn:smpte:ul:060e2b34.01040101.01010300.00000000</Type>
       <ValueLength>16 bytes</ValueLength>
-    </Entry>
-    <Entry>
-      <Register>Elements</Register>
-      <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
-      <Symbol>DataStreamID</Symbol>
-      <UL>urn:smpte:ul:060e2b34.0101010e.0103040b.00000000</UL>
-      <Kind>LEAF</Kind>
-      <Name>Data Stream ID</Name>
-      <Definition>Unique identifier for this Data Stream</Definition>
-      <DefiningDocument>SMPTE RDD 55</DefiningDocument>
-      <IsDeprecated>false</IsDeprecated>
-      <ContextScope>UnknownContext</ContextScope>
-      <Type>urn:smpte:ul:060e2b34.01040101.01030300.00000000</Type>
     </Entry>
     <Entry>
       <Register>Elements</Register>
@@ -16404,6 +16391,282 @@
     <Entry>
       <Register>Elements</Register>
       <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
+      <Symbol>RIFFChunkParameters</Symbol>
+      <UL>urn:smpte:ul:060e2b34.0101010e.04020308.00000000</UL>
+      <Kind>NODE</Kind>
+      <Name>RIFF Chunk Parameters</Name>
+      <Definition>RIFF Chunk Parameters</Definition>
+      <IsDeprecated>false</IsDeprecated>
+    </Entry>
+    <Entry>
+      <Register>Elements</Register>
+      <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
+      <Symbol>RIFFChunkStreamID</Symbol>
+      <UL>urn:smpte:ul:060e2b34.0101010e.04020308.01000000</UL>
+      <Kind>LEAF</Kind>
+      <Name>RIFF Chunk Stream ID</Name>
+      <Definition>The Stream ID of the Generic Stream carrying the ckData bytes of the RIFF Chunk</Definition>
+      <DefiningDocument>SMPTE ST 2131</DefiningDocument>
+      <IsDeprecated>false</IsDeprecated>
+      <ContextScope>UnknownContext</ContextScope>
+      <Type>urn:smpte:ul:060e2b34.01040101.01010300.00000000</Type>
+    </Entry>
+    <Entry>
+      <Register>Elements</Register>
+      <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
+      <Symbol>RIFFChunkID</Symbol>
+      <UL>urn:smpte:ul:060e2b34.0101010e.04020308.02000000</UL>
+      <Kind>LEAF</Kind>
+      <Name>RIFF Chunk ID</Name>
+      <Definition>The ckID value of the RIFF Chunk</Definition>
+      <DefiningDocument>SMPTE ST 2131</DefiningDocument>
+      <IsDeprecated>false</IsDeprecated>
+      <ContextScope>UnknownContext</ContextScope>
+      <Type>urn:smpte:ul:060e2b34.01040101.01100400.00000000</Type>
+      <ValueLength>4 bytes</ValueLength>
+    </Entry>
+    <Entry>
+      <Register>Elements</Register>
+      <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
+      <Symbol>RIFFChunkUUID</Symbol>
+      <UL>urn:smpte:ul:060e2b34.0101010e.04020308.03000000</UL>
+      <Kind>LEAF</Kind>
+      <Name>RIFF Chunk UUID</Name>
+      <Definition>A globally unique identifier for the RIFF Chunk</Definition>
+      <DefiningDocument>SMPTE ST 2131</DefiningDocument>
+      <IsDeprecated>false</IsDeprecated>
+      <ContextScope>UnknownContext</ContextScope>
+      <Type>urn:smpte:ul:060e2b34.01040101.01030300.00000000</Type>
+    </Entry>
+    <Entry>
+      <Register>Elements</Register>
+      <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
+      <Symbol>RIFFChunkHashSHA1</Symbol>
+      <UL>urn:smpte:ul:060e2b34.0101010e.04020308.04000000</UL>
+      <Kind>LEAF</Kind>
+      <Name>RIFF Chunk Hash SHA-1</Name>
+      <Definition>The SHA-1 digest of the ckData bytes of the RIFF Chunk</Definition>
+      <DefiningDocument>SMPTE ST 2131</DefiningDocument>
+      <IsDeprecated>false</IsDeprecated>
+      <ContextScope>UnknownContext</ContextScope>
+      <Type>urn:smpte:ul:060e2b34.01040101.04100100.00000000</Type>
+      <ValueLength>20 bytes</ValueLength>
+    </Entry>
+    <Entry>
+      <Register>Elements</Register>
+      <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
+      <Symbol>RIFFChunkStreamIDsArray</Symbol>
+      <UL>urn:smpte:ul:060e2b34.0101010e.04020308.06000000</UL>
+      <Kind>LEAF</Kind>
+      <Name>RIFF Chunk Stream IDs Array</Name>
+      <Definition>The Stream IDs for the applicable RIFF Chunks</Definition>
+      <DefiningDocument>SMPTE ST 2131</DefiningDocument>
+      <IsDeprecated>false</IsDeprecated>
+      <ContextScope>UnknownContext</ContextScope>
+      <Type>urn:smpte:ul:060e2b34.01040101.04010900.00000000</Type>
+    </Entry>
+    <Entry>
+      <Register>Elements</Register>
+      <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
+      <Symbol>ADMChannelMappingParameters</Symbol>
+      <UL>urn:smpte:ul:060e2b34.0101010e.04020309.00000000</UL>
+      <Kind>NODE</Kind>
+      <Name>ADM Channel Mapping Parameters</Name>
+      <Definition>ADM Channel Mapping Parameters</Definition>
+      <IsDeprecated>false</IsDeprecated>
+    </Entry>
+    <Entry>
+      <Register>Elements</Register>
+      <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
+      <Symbol>NumLocalChannels</Symbol>
+      <UL>urn:smpte:ul:060e2b34.0101010e.04020309.01000000</UL>
+      <Kind>LEAF</Kind>
+      <Name>Num Local Channels</Name>
+      <Definition>The number of MXF Sound Track channels referenced in ADMChannelMappingsArray</Definition>
+      <DefiningDocument>SMPTE ST 2131</DefiningDocument>
+      <IsDeprecated>false</IsDeprecated>
+      <ContextScope>UnknownContext</ContextScope>
+      <Type>urn:smpte:ul:060e2b34.01040101.01010200.00000000</Type>
+    </Entry>
+    <Entry>
+      <Register>Elements</Register>
+      <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
+      <Symbol>NumADMAudioTrackUIDs</Symbol>
+      <UL>urn:smpte:ul:060e2b34.0101010e.04020309.02000000</UL>
+      <Kind>LEAF</Kind>
+      <Name>Num ADM audioTrackUIDs</Name>
+      <Definition>The number of ADM audioTrackUID entities referenced in ADMChannelMappingsArray</Definition>
+      <DefiningDocument>SMPTE ST 2131</DefiningDocument>
+      <IsDeprecated>false</IsDeprecated>
+      <ContextScope>UnknownContext</ContextScope>
+      <Type>urn:smpte:ul:060e2b34.01040101.01010200.00000000</Type>
+    </Entry>
+    <Entry>
+      <Register>Elements</Register>
+      <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
+      <Symbol>ADMChannelMappingsArray</Symbol>
+      <UL>urn:smpte:ul:060e2b34.0101010e.04020309.03000000</UL>
+      <Kind>LEAF</Kind>
+      <Name>ADM Channel Mappings Array</Name>
+      <Definition>Array of ADMChannelMapping instances</Definition>
+      <DefiningDocument>SMPTE ST 2131</DefiningDocument>
+      <IsDeprecated>false</IsDeprecated>
+      <ContextScope>UnknownContext</ContextScope>
+      <Type>urn:smpte:ul:060e2b34.01040101.05061100.00000000</Type>
+    </Entry>
+    <Entry>
+      <Register>Elements</Register>
+      <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
+      <Symbol>LocalChannelID</Symbol>
+      <UL>urn:smpte:ul:060e2b34.0101010e.04020309.04000000</UL>
+      <Kind>LEAF</Kind>
+      <Name>Local Channel ID</Name>
+      <Definition>The ID of the MXF Sound Track channel containing essence identified by the associated ADM audioTrackUID</Definition>
+      <DefiningDocument>SMPTE ST 2131</DefiningDocument>
+      <IsDeprecated>false</IsDeprecated>
+      <ContextScope>UnknownContext</ContextScope>
+      <Type>urn:smpte:ul:060e2b34.01040101.01010300.00000000</Type>
+    </Entry>
+    <Entry>
+      <Register>Elements</Register>
+      <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
+      <Symbol>ADMAudioTrackUID</Symbol>
+      <UL>urn:smpte:ul:060e2b34.0101010e.04020309.05000000</UL>
+      <Kind>LEAF</Kind>
+      <Name>ADM audioTrackUID</Name>
+      <Definition>The UID of the associated ADM audioTrackUID, as defined in Rec. ITU-R BS.2076</Definition>
+      <DefiningDocument>SMPTE ST 2131</DefiningDocument>
+      <IsDeprecated>false</IsDeprecated>
+      <ContextScope>UnknownContext</ContextScope>
+      <Type>urn:smpte:ul:060e2b34.01040101.01100200.00000000</Type>
+    </Entry>
+    <Entry>
+      <Register>Elements</Register>
+      <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
+      <Symbol>ADMAudioTrackChannelFormatID</Symbol>
+      <UL>urn:smpte:ul:060e2b34.0101010e.04020309.06000000</UL>
+      <Kind>LEAF</Kind>
+      <Name>ADM audioTrackChannelFormatID</Name>
+      <Definition>The linked ADM audioTrackFormatID or ADM audioChannelFormatID value, as defined in Rec. ITU-R BS.2076</Definition>
+      <DefiningDocument>SMPTE ST 2131</DefiningDocument>
+      <IsDeprecated>false</IsDeprecated>
+      <ContextScope>UnknownContext</ContextScope>
+      <Type>urn:smpte:ul:060e2b34.01040101.01100200.00000000</Type>
+    </Entry>
+    <Entry>
+      <Register>Elements</Register>
+      <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
+      <Symbol>ADMAudioPackFormatID</Symbol>
+      <UL>urn:smpte:ul:060e2b34.0101010e.04020309.07000000</UL>
+      <Kind>LEAF</Kind>
+      <Name>ADM audioPackFormatID</Name>
+      <Definition>The linked ADM audioPackFormatID value, as defined in Rec. ITU-R BS.2076</Definition>
+      <DefiningDocument>SMPTE ST 2131</DefiningDocument>
+      <IsDeprecated>false</IsDeprecated>
+      <ContextScope>UnknownContext</ContextScope>
+      <Type>urn:smpte:ul:060e2b34.01040101.01100200.00000000</Type>
+    </Entry>
+    <Entry>
+      <Register>Elements</Register>
+      <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
+      <Symbol>ADMAudioMetadataParameters</Symbol>
+      <UL>urn:smpte:ul:060e2b34.0101010e.0402030a.00000000</UL>
+      <Kind>NODE</Kind>
+      <Name>ADM Audio Metadata Parameters</Name>
+      <Definition>ADM Audio Metadata Parameters</Definition>
+      <IsDeprecated>false</IsDeprecated>
+    </Entry>
+    <Entry>
+      <Register>Elements</Register>
+      <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
+      <Symbol>RIFFChunkStreamID_link1</Symbol>
+      <UL>urn:smpte:ul:060e2b34.0101010e.0402030a.01000000</UL>
+      <Kind>LEAF</Kind>
+      <Name>RIFF Chunk Stream ID (link 1)</Name>
+      <Definition>The Stream ID for the RIFF Chunk carrying the associated ADM metadata</Definition>
+      <DefiningDocument>SMPTE ST 2131</DefiningDocument>
+      <IsDeprecated>false</IsDeprecated>
+      <ContextScope>UnknownContext</ContextScope>
+      <Type>urn:smpte:ul:060e2b34.01040101.01010300.00000000</Type>
+    </Entry>
+    <Entry>
+      <Register>Elements</Register>
+      <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
+      <Symbol>ADMProfileLevelULBatch</Symbol>
+      <UL>urn:smpte:ul:060e2b34.0101010e.0402030a.02000000</UL>
+      <Kind>LEAF</Kind>
+      <Name>ADM Profile and Level UL Batch</Name>
+      <Definition>Batch of ULs, each representing a Profile and Level to which the associated ADM metadata complies</Definition>
+      <DefiningDocument>SMPTE ST 2131</DefiningDocument>
+      <IsDeprecated>false</IsDeprecated>
+      <ContextScope>UnknownContext</ContextScope>
+      <Type>urn:smpte:ul:060e2b34.01040101.04030100.00000000</Type>
+    </Entry>
+    <Entry>
+      <Register>Elements</Register>
+      <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
+      <Symbol>ADMSoundfieldGroupLabelParameters</Symbol>
+      <UL>urn:smpte:ul:060e2b34.0101010e.0402030b.00000000</UL>
+      <Kind>NODE</Kind>
+      <Name>ADM Soundfield Group Label Parameters</Name>
+      <Definition>ADM Soundfield Group Label Parameters</Definition>
+      <IsDeprecated>false</IsDeprecated>
+    </Entry>
+    <Entry>
+      <Register>Elements</Register>
+      <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
+      <Symbol>RIFFChunkStreamID_link2</Symbol>
+      <UL>urn:smpte:ul:060e2b34.0101010e.0402030b.01000000</UL>
+      <Kind>LEAF</Kind>
+      <Name>RIFF Chunk Stream ID (link 2)</Name>
+      <Definition>The Stream ID for the RIFF Chunk carrying the associated ADM metadata</Definition>
+      <DefiningDocument>SMPTE ST 2131</DefiningDocument>
+      <IsDeprecated>false</IsDeprecated>
+      <ContextScope>UnknownContext</ContextScope>
+      <Type>urn:smpte:ul:060e2b34.01040101.01010300.00000000</Type>
+    </Entry>
+    <Entry>
+      <Register>Elements</Register>
+      <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
+      <Symbol>ADMAudioProgrammeID_ST2131</Symbol>
+      <UL>urn:smpte:ul:060e2b34.0101010e.0402030b.02000000</UL>
+      <Kind>LEAF</Kind>
+      <Name>ADM audioProgrammeID (SMPTE ST 2131)</Name>
+      <Definition>audioProgrammeID of the associated ADM audioProgramme, as defined in Rec. ITU-R BS.2076</Definition>
+      <DefiningDocument>SMPTE ST 2131</DefiningDocument>
+      <IsDeprecated>false</IsDeprecated>
+      <ContextScope>UnknownContext</ContextScope>
+      <Type>urn:smpte:ul:060e2b34.01040101.01100200.00000000</Type>
+    </Entry>
+    <Entry>
+      <Register>Elements</Register>
+      <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
+      <Symbol>ADMAudioContentID_ST2131</Symbol>
+      <UL>urn:smpte:ul:060e2b34.0101010e.0402030b.03000000</UL>
+      <Kind>LEAF</Kind>
+      <Name>ADM audioContentID (SMPTE ST 2131)</Name>
+      <Definition>audioContentID of the associated ADM audioContent, as defined in Rec. ITU-R BS.2076</Definition>
+      <DefiningDocument>SMPTE ST 2131</DefiningDocument>
+      <IsDeprecated>false</IsDeprecated>
+      <ContextScope>UnknownContext</ContextScope>
+      <Type>urn:smpte:ul:060e2b34.01040101.01100200.00000000</Type>
+    </Entry>
+    <Entry>
+      <Register>Elements</Register>
+      <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
+      <Symbol>ADMAudioObjectID_ST2131</Symbol>
+      <UL>urn:smpte:ul:060e2b34.0101010e.0402030b.04000000</UL>
+      <Kind>LEAF</Kind>
+      <Name>ADM audioObjectID (SMPTE ST 2131)</Name>
+      <Definition>audioObjectID of the associated ADM audioObject, as defined in Rec. ITU-R BS.2076</Definition>
+      <DefiningDocument>SMPTE ST 2131</DefiningDocument>
+      <IsDeprecated>false</IsDeprecated>
+      <ContextScope>UnknownContext</ContextScope>
+      <Type>urn:smpte:ul:060e2b34.01040101.01100200.00000000</Type>
+    </Entry>
+    <Entry>
+      <Register>Elements</Register>
+      <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
       <Symbol>DigitalAudioCompressionParameters</Symbol>
       <UL>urn:smpte:ul:060e2b34.01010101.04020400.00000000</UL>
       <Kind>NODE</Kind>
@@ -17915,19 +18178,6 @@
     <Entry>
       <Register>Elements</Register>
       <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
-      <Symbol>DataStreamSampleRate</Symbol>
-      <UL>urn:smpte:ul:060e2b34.0101010e.04060103.00000000</UL>
-      <Kind>LEAF</Kind>
-      <Name>Data Stream Sample Rate</Name>
-      <Definition>Rate at which creator samples data conveyed on the Data Stream, per second</Definition>
-      <DefiningDocument>SMPTE RDD 55</DefiningDocument>
-      <IsDeprecated>false</IsDeprecated>
-      <ContextScope>UnknownContext</ContextScope>
-      <Type>urn:smpte:ul:060e2b34.01040101.03010100.00000000</Type>
-    </Entry>
-    <Entry>
-      <Register>Elements</Register>
-      <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
       <Symbol>GeneralEssenceContainerCharacteristics</Symbol>
       <UL>urn:smpte:ul:060e2b34.01010104.04060200.00000000</UL>
       <Kind>NODE</Kind>
@@ -18239,19 +18489,6 @@
       <ContextScope>UnknownContext</ContextScope>
       <Type>urn:smpte:ul:060e2b34.01040101.01010400.00000000</Type>
       <ValueLength>4 bytes</ValueLength>
-    </Entry>
-    <Entry>
-      <Register>Elements</Register>
-      <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
-      <Symbol>DataStreamSchemeURI</Symbol>
-      <UL>urn:smpte:ul:060e2b34.0101010e.04061003.00000000</UL>
-      <Kind>LEAF</Kind>
-      <Name>Data Stream Scheme URI</Name>
-      <Definition>URI identifying application of Data Stream</Definition>
-      <DefiningDocument>SMPTE RDD 55</DefiningDocument>
-      <IsDeprecated>false</IsDeprecated>
-      <ContextScope>UnknownContext</ContextScope>
-      <Type>urn:smpte:ul:060e2b34.01040101.01100200.00000000</Type>
     </Entry>
     <Entry>
       <Register>Elements</Register>
@@ -20552,58 +20789,6 @@
       <Name>Data Capture Process</Name>
       <Definition>Information about how data content was captured</Definition>
       <IsDeprecated>false</IsDeprecated>
-    </Entry>
-    <Entry>
-      <Register>Elements</Register>
-      <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
-      <Symbol>DeviceCreatorName</Symbol>
-      <UL>urn:smpte:ul:060e2b34.0101010e.05010206.01000000</UL>
-      <Kind>LEAF</Kind>
-      <Name>Device Creator Name</Name>
-      <Definition>Name of creator of device creating a Data Stream</Definition>
-      <DefiningDocument>SMPTE RDD 55</DefiningDocument>
-      <IsDeprecated>false</IsDeprecated>
-      <ContextScope>UnknownContext</ContextScope>
-      <Type>urn:smpte:ul:060e2b34.01040101.01100200.00000000</Type>
-    </Entry>
-    <Entry>
-      <Register>Elements</Register>
-      <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
-      <Symbol>DeviceProductName</Symbol>
-      <UL>urn:smpte:ul:060e2b34.0101010e.05010206.02000000</UL>
-      <Kind>LEAF</Kind>
-      <Name>Device Product Name</Name>
-      <Definition>Name identifying product creating a Data Stream</Definition>
-      <DefiningDocument>SMPTE RDD 55</DefiningDocument>
-      <IsDeprecated>false</IsDeprecated>
-      <ContextScope>UnknownContext</ContextScope>
-      <Type>urn:smpte:ul:060e2b34.01040101.01100200.00000000</Type>
-    </Entry>
-    <Entry>
-      <Register>Elements</Register>
-      <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
-      <Symbol>DeviceVersion</Symbol>
-      <UL>urn:smpte:ul:060e2b34.0101010e.05010206.03000000</UL>
-      <Kind>LEAF</Kind>
-      <Name>Device Version</Name>
-      <Definition>Version identifier for device creating a Data Stream</Definition>
-      <DefiningDocument>SMPTE RDD 55</DefiningDocument>
-      <IsDeprecated>false</IsDeprecated>
-      <ContextScope>UnknownContext</ContextScope>
-      <Type>urn:smpte:ul:060e2b34.01040101.01100200.00000000</Type>
-    </Entry>
-    <Entry>
-      <Register>Elements</Register>
-      <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
-      <Symbol>DeviceInstanceIdentifier</Symbol>
-      <UL>urn:smpte:ul:060e2b34.0101010e.05010206.04000000</UL>
-      <Kind>LEAF</Kind>
-      <Name>Device Instance Identifier</Name>
-      <Definition>Unambiguous identifier for device creating a Data Stream, in the context of the application</Definition>
-      <DefiningDocument>SMPTE RDD 55</DefiningDocument>
-      <IsDeprecated>false</IsDeprecated>
-      <ContextScope>UnknownContext</ContextScope>
-      <Type>urn:smpte:ul:060e2b34.01040101.01100200.00000000</Type>
     </Entry>
     <Entry>
       <Register>Elements</Register>
@@ -23602,19 +23787,6 @@
       <IsDeprecated>false</IsDeprecated>
       <ContextScope>UnknownContext</ContextScope>
       <Type>urn:smpte:ul:060e2b34.01040101.01010100.00000000</Type>
-    </Entry>
-    <Entry>
-      <Register>Elements</Register>
-      <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
-      <Symbol>LinkedDataStreamID</Symbol>
-      <UL>urn:smpte:ul:060e2b34.0101010e.06010102.07000000</UL>
-      <Kind>LEAF</Kind>
-      <Name>Linked Data Stream ID</Name>
-      <Definition>Unique identifer of Data Stream described by this SubDescriptor</Definition>
-      <DefiningDocument>SMPTE RDD 55</DefiningDocument>
-      <IsDeprecated>false</IsDeprecated>
-      <ContextScope>UnknownContext</ContextScope>
-      <Type>urn:smpte:ul:060e2b34.01040101.01030300.00000000</Type>
     </Entry>
     <Entry>
       <Register>Elements</Register>
@@ -30886,19 +31058,6 @@
       <ContextScope>UnknownContext</ContextScope>
       <Type>urn:smpte:ul:060e2b34.01040101.03010700.00000000</Type>
       <ValueLength>8 bytes</ValueLength>
-    </Entry>
-    <Entry>
-      <Register>Elements</Register>
-      <NamespaceName>http://www.smpte-ra.org/reg/335/2012</NamespaceName>
-      <Symbol>CreationTimestamp</Symbol>
-      <UL>urn:smpte:ul:060e2b34.0101010e.07020110.01050000</UL>
-      <Kind>LEAF</Kind>
-      <Name>Creation Timestamp</Name>
-      <Definition>IEEE 1588-2019 PTP Timestamp documenting the time at which the data in the data set were created</Definition>
-      <DefiningDocument>SMPTE RDD 55</DefiningDocument>
-      <IsDeprecated>false</IsDeprecated>
-      <ContextScope>UnknownContext</ContextScope>
-      <Type>urn:smpte:ul:060e2b34.01040101.03011000.00000000</Type>
     </Entry>
     <Entry>
       <Register>Elements</Register>
@@ -47726,20 +47885,6 @@
     <Entry>
       <Register>Elements</Register>
       <NamespaceName>http://www.smpte-ra.org/reg/335/2012/14/9</NamespaceName>
-      <Symbol>NamespaceURI</Symbol>
-      <UL>urn:smpte:ul:060e2b34.01010105.0e090400.00000000</UL>
-      <Kind>LEAF</Kind>
-      <Name>Namespace URI</Name>
-      <Definition>Identifies the default namespace of the essence XML documents</Definition>
-      <DefiningDocument>SMPTE ST 2067-202</DefiningDocument>
-      <IsDeprecated>false</IsDeprecated>
-      <ContextScope>UnknownContext</ContextScope>
-      <Type>urn:smpte:ul:060e2b34.01040101.01100600.00000000</Type>
-      <ValueLength>variable</ValueLength>
-    </Entry>
-    <Entry>
-      <Register>Elements</Register>
-      <NamespaceName>http://www.smpte-ra.org/reg/335/2012/14/9</NamespaceName>
       <Symbol>ImmersiveAudioVersion</Symbol>
       <UL>urn:smpte:ul:060e2b34.01010105.0e090506.00000000</UL>
       <Kind>LEAF</Kind>
@@ -47801,48 +47946,6 @@
       <IsDeprecated>false</IsDeprecated>
       <ContextScope>DefinedContext</ContextScope>
       <Type>urn:smpte:ul:060e2b34.01040101.01010300.00000000</Type>
-    </Entry>
-    <Entry>
-      <Register>Elements</Register>
-      <NamespaceName>http://www.smpte-ra.org/reg/335/2012/14/9</NamespaceName>
-      <Symbol>DataDefinition</Symbol>
-      <UL>urn:smpte:ul:060e2b34.01010105.0e090607.01010104</UL>
-      <Kind>LEAF</Kind>
-      <Name>Data Definition</Name>
-      <Definition>Identifies the value of PHDR Data Definition</Definition>
-      <DefiningDocument>SMPTE RDD 56</DefiningDocument>
-      <IsDeprecated>false</IsDeprecated>
-      <ContextScope>UnknownContext</ContextScope>
-      <Type>urn:smpte:ul:060e2b34.01040101.04011100.00000000</Type>
-      <ValueLength>16 bytes</ValueLength>
-    </Entry>
-    <Entry>
-      <Register>Elements</Register>
-      <NamespaceName>http://www.smpte-ra.org/reg/335/2012/14/9</NamespaceName>
-      <Symbol>SourceTrackID</Symbol>
-      <UL>urn:smpte:ul:060e2b34.01010105.0e090607.01010105</UL>
-      <Kind>LEAF</Kind>
-      <Name>Source Track ID</Name>
-      <Definition>Identifies the Source Track ID of the PHDR Data Items</Definition>
-      <DefiningDocument>SMPTE RDD 56</DefiningDocument>
-      <IsDeprecated>false</IsDeprecated>
-      <ContextScope>UnknownContext</ContextScope>
-      <Type>urn:smpte:ul:060e2b34.01040101.01010300.00000000</Type>
-      <ValueLength>4 bytes</ValueLength>
-    </Entry>
-    <Entry>
-      <Register>Elements</Register>
-      <NamespaceName>http://www.smpte-ra.org/reg/335/2012/14/9</NamespaceName>
-      <Symbol>SimplePayloadSID</Symbol>
-      <UL>urn:smpte:ul:060e2b34.01010105.0e090607.01010106</UL>
-      <Kind>LEAF</Kind>
-      <Name>Simple Payload SID</Name>
-      <Definition>Identifies the Source Track ID of the ST 410 GSP as static data</Definition>
-      <DefiningDocument>SMPTE RDD 56</DefiningDocument>
-      <IsDeprecated>false</IsDeprecated>
-      <ContextScope>UnknownContext</ContextScope>
-      <Type>urn:smpte:ul:060e2b34.01040101.01010300.00000000</Type>
-      <ValueLength>4 bytes</ValueLength>
     </Entry>
     <Entry>
       <Register>Elements</Register>

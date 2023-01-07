@@ -202,6 +202,9 @@ namespace Myriadbits.MXF
             //ST 2127-10 S-ADM in MXF
             if (knownSymbols.TryGetValue("SADMAudioMetadataSubDescriptor", out ul_key)) dict.Add(new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key, true)), typeof(MXFSADMAudioMetadataSubDescriptor));
 
+            //ST 2131 ADM in MXF
+            if (knownSymbols.TryGetValue("RIFFChunkDefinitionSubDescriptor", out ul_key)) dict.Add(new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key, true)), typeof(MXFRIFFChunkDefinitionSubDescriptor));
+
             dict.Add(new MXFKey(0x06, 0x0e, 0x2b, 0x34, 0x02, 0x53, 0x01, 0x01, 0x0d, 0x01, 0x01, 0x01, 0x01, 0x01, 0x59, 0x00), typeof(MXFSubDescriptor));
 
 
