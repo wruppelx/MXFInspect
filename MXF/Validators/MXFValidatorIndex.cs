@@ -102,11 +102,11 @@ namespace Myriadbits.MXF
 						// TODO Check if the size of all compounds is the same??
 						return;
 					}
-                    else if (firstTable.IndexDuration == 0 && firstTable.IndexStartPosition == 0)
-                    {
-                        valResult.SetSuccess(string.Format("Constant Bytes per Element ({0} bytes) for BodySID {1}, but IndexDuration is not specified", firstTable.EditUnitByteCount, firstTable.BodySID));
-                        // TODO Check if the size of all compounds is the same??
-                        return;
+					else if (firstTable.IndexDuration == 0 && firstTable.IndexStartPosition == 0)
+					{
+						valResult.SetSuccess(string.Format("Constant Bytes per Element ({0} bytes) for BodySID {1}, but IndexDuration is not specified", firstTable.EditUnitByteCount, firstTable.BodySID));
+						// TODO Check if the size of all compounds is the same??
+						return;
 					}
 					else
 					{
@@ -163,7 +163,7 @@ namespace Myriadbits.MXF
 			if (m_systemItems.Count != 0)
 			{
 				itemsFound = true;
-				// For each index table segment				
+				// For each index table segment
 				totalSystemItems = m_systemItems.Count();
 				counter = 0;
 				this.Task = "Checking essence offsets";
@@ -201,7 +201,7 @@ namespace Myriadbits.MXF
 				itemsFound = true;
 				// Now try to match the picture essences
 
-				// For each index table segment				
+				// For each index table segment
 				counter = 0;
 				totalSystemItems = m_pictureItems.Count();
 				this.Task = "Checking picture offsets";
@@ -238,7 +238,7 @@ namespace Myriadbits.MXF
 				itemsFound = true;
 				// Now try to match the sound essences
 
-				// For each index table segment				
+				// For each index table segment
 				counter = 0;
 				totalSystemItems = m_soundItems.Count();
 				this.Task = "Checking sound offsets";
@@ -257,8 +257,8 @@ namespace Myriadbits.MXF
 							{
 								clipWrappedSound = true;
 								MXFEssenceElement ee = this.m_soundItems.First();
-                                // With clip wrapping, we only check if the search index points into the essence element
-                                if (searchIndex < ee.Length)
+								// With clip wrapping, we only check if the search index points into the essence element
+								if (searchIndex < ee.Length)
 								{
 									validCt++;
 									ee.Indexed = true;
@@ -296,7 +296,7 @@ namespace Myriadbits.MXF
 				itemsFound = true;
 				// Now try to match the data essences
 
-				// For each index table segment				
+				// For each index table segment
 				counter = 0;
 				totalSystemItems = m_dataItems.Count();
 				this.Task = "Checking data offsets";
