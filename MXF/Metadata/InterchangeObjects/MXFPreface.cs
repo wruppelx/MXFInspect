@@ -21,7 +21,9 @@
 //
 #endregion
 
+using Myriadbits.MXF.Identifiers;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace Myriadbits.MXF
@@ -29,6 +31,11 @@ namespace Myriadbits.MXF
     public class MXFPreface : MXFInterchangeObject
     {
         private const string CATEGORYNAME = "Preface";
+        static readonly Dictionary<string, MXFShortKey> knownSymbols = SymbolDictionary.GetKeys();
+        private bool ParamsInitiated = false;
+        private MXFShortKey ul_key;
+
+        private MXFKey ADMChannelMapping_Key;
 
         private readonly MXFKey isRIPPresent_Key = new MXFKey(0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x0e, 0x04, 0x04, 0x05, 0x03, 0x00, 0x00, 0x00, 0x00);
 
@@ -56,6 +63,18 @@ namespace Myriadbits.MXF
         }
 
         /// <summary>
+        /// Set ULs for all elements
+        /// </summary>
+        private void InitParms()
+        {
+            if (knownSymbols.TryGetValue("ADMChannelMapping", out ul_key))
+                ADMChannelMapping_Key = new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key));
+
+            ParamsInitiated = true;
+        }
+
+
+        /// <summary>
         /// Overridden method to process local tags
         /// </summary>
         /// <param name="localTag"></param>
@@ -74,6 +93,7 @@ namespace Myriadbits.MXF
                     // TODO review how the metadataschemes are read (especially if there are no schemes present)
                 case 0x3B0B: this.AddChild(reader.ReadAUIDSet("Descriptive Metadata Schemes", "DM scheme")); return true;
                 case var _ when localTag.Key == isRIPPresent_Key: this.IsRIPPresent = reader.ReadBool(); return true;
+                case var _ when localTag.Key == ADMChannelMapping_Key: this.AddChild(reader.ReadReferenceSet<MXFADMChannelMapping>("ADMChannelMappings", "ADMChannelMapping")); return true;
             }
             return base.ParseLocalTag(reader, localTag);
         }

@@ -204,6 +204,11 @@ namespace Myriadbits.MXF
 
             //ST 2131 ADM in MXF
             if (knownSymbols.TryGetValue("RIFFChunkDefinitionSubDescriptor", out ul_key)) dict.Add(new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key, true)), typeof(MXFRIFFChunkDefinitionSubDescriptor));
+            if (knownSymbols.TryGetValue("RIFFChunkReferencesSubDescriptor", out ul_key)) dict.Add(new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key, true)), typeof(MXFRIFFChunkReferencesSubDescriptor));
+            if (knownSymbols.TryGetValue("ADM_CHNASubDescriptor", out ul_key)) dict.Add(new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key, true)), typeof(MXFADM_CHNASubDescriptor));
+            if (knownSymbols.TryGetValue("ADMChannelMapping", out ul_key)) dict.Add(new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key, true)), typeof(MXFADMChannelMapping));
+            if (knownSymbols.TryGetValue("ADMAudioMetadataSubDescriptor", out ul_key)) dict.Add(new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key, true)), typeof(MXFADMAudioMetadataSubDescriptor));
+            if (knownSymbols.TryGetValue("ADMSoundfieldGroupLabelSubDescriptor", out ul_key)) dict.Add(new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key, true)), typeof(MXFADMSoundfieldGroupLabelSubDescriptor));
 
             dict.Add(new MXFKey(0x06, 0x0e, 0x2b, 0x34, 0x02, 0x53, 0x01, 0x01, 0x0d, 0x01, 0x01, 0x01, 0x01, 0x01, 0x59, 0x00), typeof(MXFSubDescriptor));
 
