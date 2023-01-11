@@ -54,7 +54,7 @@ namespace Myriadbits.MXF
 		public string ADMAudioPackFormatID { get; set; }
 
 		public MXFADMChannelMapping(MXFReader reader, MXFKLV headerKLV)
-			: base(reader, headerKLV, "ADMChannelMapping")
+			: base(reader, headerKLV, "ADM Channel Mapping")
 		{
 		}
 
