@@ -25,6 +25,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using Myriadbits.MXF;
 
 namespace Myriadbits.MXF
 {
@@ -46,6 +47,9 @@ namespace Myriadbits.MXF
 
         [Category("PartitionHeader")]
         public bool Complete { get; set; }
+
+        [Category("PartitionHeader")]
+        public bool GenericStreamPartition { get; set; }
 
         [Category("PartitionHeader")]
         [ULElement("urn:smpte:ul:060e2b34.01010104.03010201.06000000")]
@@ -140,6 +144,7 @@ namespace Myriadbits.MXF
 
             this.Closed = (this.PartitionType == PartitionType.Footer) || (this.Key[14] & 0x01) == 0x00;
             this.Complete = (this.Key[14] > 2);
+            this.GenericStreamPartition = (this.PartitionType == PartitionType.Body) && (this.Key[14] == 0x11);
 
             // Make sure we read at the data position
             reader.Seek(this.DataOffset);

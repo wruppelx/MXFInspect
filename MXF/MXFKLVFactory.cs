@@ -80,6 +80,9 @@ namespace Myriadbits.MXF
 
             dict.Add(new MXFKey(0x06, 0x0e, 0x2b, 0x34, 0x02, 0x53, 0x01, 0x01, 0x0d, 0x01, 0x02, 0x01, 0x01, 0x10, 0x01, 0x00), typeof(MXFIndexTableSegment));
 
+            // GenericStreamDataElement SMPTE ST 410
+            dict.Add(new MXFKey(0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x0c, 0x0d, 0x01, 0x05), typeof(MXFGenericStreamDataElement));
+
             #endregion
 
             #region Main Elements
@@ -209,6 +212,9 @@ namespace Myriadbits.MXF
             if (knownSymbols.TryGetValue("ADMChannelMapping", out ul_key)) dict.Add(new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key, true)), typeof(MXFADMChannelMapping));
             if (knownSymbols.TryGetValue("ADMAudioMetadataSubDescriptor", out ul_key)) dict.Add(new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key, true)), typeof(MXFADMAudioMetadataSubDescriptor));
             if (knownSymbols.TryGetValue("ADMSoundfieldGroupLabelSubDescriptor", out ul_key)) dict.Add(new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key, true)), typeof(MXFADMSoundfieldGroupLabelSubDescriptor));
+
+            //ST 429-5 D-Cinema Timed Text
+            if (knownSymbols.TryGetValue("DCTimedTextResourceSubDescriptor", out ul_key)) dict.Add(new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key, true)), typeof(MXFDCTimedTextResourceSubDescriptor));
 
             dict.Add(new MXFKey(0x06, 0x0e, 0x2b, 0x34, 0x02, 0x53, 0x01, 0x01, 0x0d, 0x01, 0x01, 0x01, 0x01, 0x01, 0x59, 0x00), typeof(MXFSubDescriptor));
 

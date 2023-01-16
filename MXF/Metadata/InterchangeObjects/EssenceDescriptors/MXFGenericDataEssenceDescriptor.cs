@@ -28,12 +28,10 @@ namespace Myriadbits.MXF
 	public class MXFGenericDataEssenceDescriptor : MXFFileDescriptor
 	{
 		private const string CATEGORYNAME = "GenericDataEssenceDescriptor";
+        private const int CATEGORYPOS = 4;
 
-		[Category(CATEGORYNAME)]
-		public MXFKey DataEssenceCoding { get; set; }
-		
-		
-
+        [Category(CATEGORYNAME)]
+        public MXFKey DataEssenceCoding { get; set; }
 		
 		/// <summary>
 		/// Constructor, set the correct descriptor name

@@ -36,15 +36,7 @@ namespace Myriadbits.MXF
 		private MXFShortKey ul_key;
 
 		private MXFKey RIFFChunkStreamIDsArray_Key;
-		private MXFKey Param2_Key;
-		private MXFKey Param3_Key;
-		private MXFKey Param4_Key;
 
-		/* Types:
-		 * UInt32
-		 * byte[]
-		 * MXFUUID
-		 */
 		[Category(CATEGORYNAME)]
 		public UInt32[] RIFFChunkStreamIDsArray { get; set; }
 

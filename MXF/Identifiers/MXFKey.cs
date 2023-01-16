@@ -43,7 +43,8 @@ namespace Myriadbits.MXF
         PrimerPack,
         Preface,
         Filler,
-        RIP
+        RIP,
+        GenericStreamDataElement
     }
 
     public enum ULCategories
