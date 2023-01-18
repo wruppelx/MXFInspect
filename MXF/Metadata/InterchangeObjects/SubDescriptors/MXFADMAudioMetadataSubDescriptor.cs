@@ -37,14 +37,7 @@ namespace Myriadbits.MXF
 
 		private MXFKey RIFFChunkStreamID_link1_Key;
 		private MXFKey ADMProfileLevelULBatch_Key;
-		private MXFKey Param3_Key;
-		private MXFKey Param4_Key;
 
-        /* Types:
-		 * UInt32
-		 * byte[]
-		 * MXFUUID
-		 */
 		[Category(CATEGORYNAME)]
 		public UInt32 RIFFChunkStreamID_link1 { get; set; }
 
@@ -66,9 +59,6 @@ namespace Myriadbits.MXF
 			if (knownSymbols.TryGetValue("ADMProfileLevelULBatch", out ul_key))
 				ADMProfileLevelULBatch_Key = new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key));
 			if (knownSymbols.TryGetValue("Param3", out ul_key))
-				Param3_Key = new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key));
-			if (knownSymbols.TryGetValue("Param4", out ul_key))
-				Param4_Key = new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key));
 			ParamsInitiated = true;
 		}
 
@@ -83,8 +73,6 @@ namespace Myriadbits.MXF
 			{
 				switch (localTag.Key)
 				{
-		//reader.ReadUInt32();reader.ReadUUIDKey();reader.ReadArray<byte>(reader.ReadByte, 20)
-		//UInt32 num = reader.ReadUInt32();  reader.Skip(4);  this.ADMProfileLevelULBatch = reader.ReadArray<byte>(reader.ReadByte, 4)
 					case var _ when localTag.Key == RIFFChunkStreamID_link1_Key: this.RIFFChunkStreamID_link1 = reader.ReadUInt32(); return true;
                     case var _ when localTag.Key == ADMProfileLevelULBatch_Key: UInt32 num = reader.ReadUInt32(); reader.Skip(4); this.ADMProfileLevelULBatch = reader.ReadArray(reader.ReadUUIDKey, (int)num); return true;
 				}

@@ -40,7 +40,7 @@ namespace Myriadbits.MXF
 		private MXFKey ADMChannelMappingsArray_Key;
 
 		[Category(CATEGORYNAME)]
-		public UInt32 NumLocalChannels { get; set; }
+		public UInt16 NumLocalChannels { get; set; }
 
 		[Category(CATEGORYNAME)]
 		public UInt16 NumADMAudioTrackUIDs { get; set; }
@@ -75,7 +75,7 @@ namespace Myriadbits.MXF
 			{
 				switch (localTag.Key)
 				{
-					case var _ when localTag.Key == NumLocalChannels_Key: this.NumLocalChannels = reader.ReadUInt32(); return true;
+					case var _ when localTag.Key == NumLocalChannels_Key: this.NumLocalChannels = reader.ReadUInt16(); return true;
 					case var _ when localTag.Key == NumADMAudioTrackUIDs_Key: this.NumADMAudioTrackUIDs = reader.ReadUInt16(); return true;
 					case var _ when localTag.Key == ADMChannelMappingsArray_Key: this.AddChild(reader.ReadReferenceSet<MXFADMChannelMapping>("ADMChannelMappings", "ADMChannelMapping")); return true;
                 }

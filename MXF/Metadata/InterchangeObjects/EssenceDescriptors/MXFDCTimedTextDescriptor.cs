@@ -40,6 +40,7 @@ namespace Myriadbits.MXF
         private MXFKey ResourceID_Key;
         private MXFKey UCSEncoding_Key;
         private MXFKey NamespaceURI_Key;
+        private MXFKey RFC5646LanguageTagList_Key;
 
         [SortedCategory(CATEGORYNAME, CATEGORYPOS)]
         public MXFUUID ResourceID { get; set; }
@@ -49,6 +50,9 @@ namespace Myriadbits.MXF
 
         [SortedCategory(CATEGORYNAME, CATEGORYPOS)]
         public string NamespaceURI { get; set; }
+
+        [SortedCategory(CATEGORYNAME, CATEGORYPOS)]
+        public string RFC5646LanguageTagList { get; set; }
 
         /// <summary>
         /// Constructor, set the correct descriptor name
@@ -71,6 +75,8 @@ namespace Myriadbits.MXF
                 UCSEncoding_Key = new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key));
             if (knownSymbols.TryGetValue("NamespaceURI", out ul_key))
                 NamespaceURI_Key = new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key));
+            if (knownSymbols.TryGetValue("RFC5646LanguageTagList", out ul_key))
+                RFC5646LanguageTagList_Key = new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key));
             ParamsInitiated = true;
         }
 
@@ -86,6 +92,7 @@ namespace Myriadbits.MXF
                 case var _ when localTag.Key == ResourceID_Key: this.ResourceID = reader.ReadUUIDKey(); return true;
                 case var _ when localTag.Key == UCSEncoding_Key: this.UCSEncoding = reader.ReadUTF16String(localTag.Size); return true;
                 case var _ when localTag.Key == NamespaceURI_Key: this.NamespaceURI = reader.ReadUTF16String(localTag.Size); return true;
+                case var _ when localTag.Key == RFC5646LanguageTagList_Key: this.RFC5646LanguageTagList = reader.ReadUTF16String(localTag.Size); return true;
             }
             return base.ParseLocalTag(reader, localTag);
         }

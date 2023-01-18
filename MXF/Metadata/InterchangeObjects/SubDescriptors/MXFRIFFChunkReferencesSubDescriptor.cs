@@ -40,9 +40,6 @@ namespace Myriadbits.MXF
 		[Category(CATEGORYNAME)]
 		public UInt32[] RIFFChunkStreamIDsArray { get; set; }
 
-		[Category(CATEGORYNAME)]
-		public byte[] Param4 { get; set; }
-
 		public MXFRIFFChunkReferencesSubDescriptor(MXFReader reader, MXFKLV headerKLV)
 			: base(reader, headerKLV, "RIFF Chunk References Sub-Descriptor")
 		{
