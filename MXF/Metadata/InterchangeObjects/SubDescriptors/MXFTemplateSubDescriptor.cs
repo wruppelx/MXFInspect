@@ -44,8 +44,10 @@ namespace Myriadbits.MXF
 		 * UInt32
 		 * byte[]
 		 * MXFUUID
+		 * string
+		 * MXFColorPrimary
 		 */
-		[Category(CATEGORYNAME)]
+        [Category(CATEGORYNAME)]
 		public UInt32 Param1 { get; set; }
 
 		[Category(CATEGORYNAME)]
@@ -96,8 +98,10 @@ namespace Myriadbits.MXF
 					case var _ when localTag.Key == Param2_Key: UInt32 num = reader.ReadUInt32();  reader.Skip(4);  this.Param2 = reader.ReadArray<byte>(reader.ReadByte, 4); return true;
 					case var _ when localTag.Key == Param3_Key: this.Param3 = reader.ReadUUIDKey(); return true;
 					case var _ when localTag.Key == Param4_Key: this.Param4 = reader.ReadArray<byte>(reader.ReadByte, 20); return true; //SHA-1 has a size of 160 bit
-				}
-			}
+                    //case var _ when localTag.Key == UCSEncoding_Key: this.UCSEncoding = reader.ReadUTF16String(localTag.Size); return true;
+
+                }
+            }
 			return base.ParseLocalTag(reader, localTag);
 		}
 
