@@ -28,8 +28,8 @@ using Myriadbits.MXF.Identifiers;
 
 namespace Myriadbits.MXF
 {
-	public class MXFADMSoundfieldGroupLabelSubDescriptor : MXFSubDescriptor
-	{
+	public class MXFADMSoundfieldGroupLabelSubDescriptor : MXFSoundfieldGroupLabelSubDescriptor
+    {
 		private const string CATEGORYNAME = "ADMSoundfieldGroupLabelSubDescriptor";
 		static readonly Dictionary<string, MXFShortKey> knownSymbols = SymbolDictionary.GetKeys();
 		private bool ParamsInitiated = false;
