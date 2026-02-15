@@ -2,7 +2,7 @@
 //
 // MXF - Myriadbits .NET MXF library. 
 // Read MXF Files.
-// Copyright (C) 2015 Myriadbits, Jochem Bakker
+// Copyright (C) 2023 Wolfgang Ruppel
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -28,25 +28,28 @@ using Myriadbits.MXF.Identifiers;
 
 namespace Myriadbits.MXF
 {
-    public class MXFSADMAudioMetadataSubDescriptor : MXFSubDescriptor
+    public class MXFDCTimedTextResourceSubDescriptor : MXFSubDescriptor
     {
-        private const string CATEGORYNAME = "SADMAudioMetadataSubDescriptor";
+        private const string CATEGORYNAME = "DCTimedTextResourceSubDescriptor";
         static readonly Dictionary<string, MXFShortKey> knownSymbols = SymbolDictionary.GetKeys();
         private bool ParamsInitiated = false;
         private MXFShortKey ul_key;
 
-        private MXFKey SADMMetadataSectionLinkID_Key;
-        private MXFKey SADMProfileLevelULBatch_Key;
+        private MXFKey AncillaryResourceID_Key;
+        private MXFKey MIMEType_Key;
+        private MXFKey EssenceStreamID_Key;
 
         [Category(CATEGORYNAME)]
-        public MXFUUID SADMMetadataSectionLinkID { get; set; }
+        public MXFUUID AncillaryResourceID { get; set; }
 
         [Category(CATEGORYNAME)]
-        public MXFUUID[] SADMProfileLevelULBatch { get; set; }
+        public string MIMEType { get; set; }
 
-
-        public MXFSADMAudioMetadataSubDescriptor(MXFReader reader, MXFKLV headerKLV)
-            : base(reader, headerKLV, "S-ADM Audio Metadata SubDescriptor")
+        [Category(CATEGORYNAME)]
+        public UInt32 EssenceStreamID { get; set; }
+        
+        public MXFDCTimedTextResourceSubDescriptor(MXFReader reader, MXFKLV headerKLV)
+            : base(reader, headerKLV, "DC Timed Text Resource SubDescriptor")
         {
         }
 
@@ -55,10 +58,12 @@ namespace Myriadbits.MXF
         /// </summary>
         private void InitParms()
         {
-            if (knownSymbols.TryGetValue("SADMMetadataSectionLinkID", out ul_key))
-                SADMMetadataSectionLinkID_Key = new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key));
-            if (knownSymbols.TryGetValue("SADMProfileLevelULBatch", out ul_key))
-                SADMProfileLevelULBatch_Key = new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key));
+            if (knownSymbols.TryGetValue("AncillaryResourceID", out ul_key))
+                AncillaryResourceID_Key = new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key));
+            if (knownSymbols.TryGetValue("MIMEType", out ul_key))
+                MIMEType_Key = new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key));
+            if (knownSymbols.TryGetValue("EssenceStreamID", out ul_key))
+                EssenceStreamID_Key = new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key));
             ParamsInitiated = true;
         }
 
@@ -73,8 +78,9 @@ namespace Myriadbits.MXF
             {
                 switch (localTag.Key)
                 {
-                    case var _ when localTag.Key == SADMMetadataSectionLinkID_Key: this.SADMMetadataSectionLinkID = reader.ReadUUIDKey(); return true;
-                    case var _ when localTag.Key == SADMProfileLevelULBatch_Key: UInt32 num = reader.ReadUInt32();  reader.Skip(4);  this.SADMProfileLevelULBatch = reader.ReadArray(reader.ReadUUIDKey, (int)num); return true;
+                    case var _ when localTag.Key == AncillaryResourceID_Key: this.AncillaryResourceID = reader.ReadUUIDKey(); return true;
+                    case var _ when localTag.Key == MIMEType_Key: this.MIMEType = reader.ReadUTF16String(localTag.Size); return true;
+                    case var _ when localTag.Key == EssenceStreamID_Key: this.EssenceStreamID = reader.ReadUInt32(); return true;
                 }
             }
             return base.ParseLocalTag(reader, localTag);

@@ -67,6 +67,7 @@ namespace Myriadbits.MXF
             dict.Add(new MXFKey(0x06, 0x0e, 0x2b, 0x34, 0x01, 0x02, 0x01, 0x01, 0x0d, 0x01, 0x03, 0x01, 0x15), typeof(MXFEssenceElement));
             dict.Add(new MXFKey(0x06, 0x0e, 0x2b, 0x34, 0x01, 0x02, 0x01, 0x01, 0x0d, 0x01, 0x03, 0x01, 0x16), typeof(MXFEssenceElement));
             dict.Add(new MXFKey(0x06, 0x0e, 0x2b, 0x34, 0x01, 0x02, 0x01, 0x01, 0x0d, 0x01, 0x03, 0x01, 0x18), typeof(MXFEssenceElement));
+            dict.Add(new MXFKey(0x06, 0x0e, 0x2b, 0x34, 0x01, 0x02, 0x01, 0x05, 0x0e, 0x09, 0x05, 0x02, 0x01), typeof(MXFEssenceElement)); // ISXD ST 2067-202
 
             // TODO cannot be found in SMPTE official registers ???
             // closest one: OrganizationallyRegisteredAsPrivate 	http://www.smpte-ra.org/reg/400/2012/14 	urn:smpte:ul:060e2b34.04010101.0e000000.00000000
@@ -79,6 +80,9 @@ namespace Myriadbits.MXF
             dict.Add(new MXFKey(0x06, 0x0e, 0x2b, 0x34, 0x02, 0x63, 0x01, 0x01, 0x0d, 0x01, 0x03, 0x01, 0x04, 0x01), typeof(MXFPackageMetaData));
 
             dict.Add(new MXFKey(0x06, 0x0e, 0x2b, 0x34, 0x02, 0x53, 0x01, 0x01, 0x0d, 0x01, 0x02, 0x01, 0x01, 0x10, 0x01, 0x00), typeof(MXFIndexTableSegment));
+
+            // GenericStreamDataElement SMPTE ST 410
+            dict.Add(new MXFKey(0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x0c, 0x0d, 0x01, 0x05), typeof(MXFGenericStreamDataElement));
 
             #endregion
 
@@ -201,6 +205,20 @@ namespace Myriadbits.MXF
 
             //ST 2127-10 S-ADM in MXF
             if (knownSymbols.TryGetValue("SADMAudioMetadataSubDescriptor", out ul_key)) dict.Add(new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key, true)), typeof(MXFSADMAudioMetadataSubDescriptor));
+
+            //ST 2131 ADM in MXF
+            if (knownSymbols.TryGetValue("RIFFChunkDefinitionSubDescriptor", out ul_key)) dict.Add(new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key, true)), typeof(MXFRIFFChunkDefinitionSubDescriptor));
+            if (knownSymbols.TryGetValue("RIFFChunkReferencesSubDescriptor", out ul_key)) dict.Add(new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key, true)), typeof(MXFRIFFChunkReferencesSubDescriptor));
+            if (knownSymbols.TryGetValue("ADM_CHNASubDescriptor", out ul_key)) dict.Add(new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key, true)), typeof(MXFADM_CHNASubDescriptor));
+            if (knownSymbols.TryGetValue("ADMChannelMapping", out ul_key)) dict.Add(new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key, true)), typeof(MXFADMChannelMapping));
+            if (knownSymbols.TryGetValue("ADMAudioMetadataSubDescriptor", out ul_key)) dict.Add(new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key, true)), typeof(MXFADMAudioMetadataSubDescriptor));
+            if (knownSymbols.TryGetValue("ADMSoundfieldGroupLabelSubDescriptor", out ul_key)) dict.Add(new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key, true)), typeof(MXFADMSoundfieldGroupLabelSubDescriptor));
+
+            //ST 429-5 D-Cinema Timed Text
+            if (knownSymbols.TryGetValue("DCTimedTextResourceSubDescriptor", out ul_key)) dict.Add(new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key, true)), typeof(MXFDCTimedTextResourceSubDescriptor));
+
+            // ST 2067-202 IMF ISXD
+            if (knownSymbols.TryGetValue("ISXDDataEssenceDescriptor", out ul_key)) dict.Add(new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key, true)), typeof(MXFISXDDataEssenceDescriptor));
 
             dict.Add(new MXFKey(0x06, 0x0e, 0x2b, 0x34, 0x02, 0x53, 0x01, 0x01, 0x0d, 0x01, 0x01, 0x01, 0x01, 0x01, 0x59, 0x00), typeof(MXFSubDescriptor));
 

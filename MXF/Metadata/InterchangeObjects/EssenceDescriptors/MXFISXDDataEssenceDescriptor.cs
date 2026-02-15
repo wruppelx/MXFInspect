@@ -21,45 +21,43 @@
 //
 #endregion
 
-using System;
-using System.ComponentModel;
-using System.Collections.Generic;
-using Myriadbits.MXF.Identifiers;
 using Myriadbits.MXF.Utils;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using Myriadbits.MXF.Identifiers;
 
 namespace Myriadbits.MXF
 {
-    public class MXFAudioChannelLabelSubDescriptor : MXFMCALabelSubDescriptor
+    [ULGroup("urn:smpte:ul:060e2b34.027f0105.0e090502.00000000")]
+    public class MXFISXDDataEssenceDescriptor : MXFGenericDataEssenceDescriptor
     {
-        private const string CATEGORYNAME = "Audio Channel Label SubDescriptor";
-        private const int CATEGORYPOS = 4;
+        private const string CATEGORYNAME = "MXFISXDDataEssenceDescriptor";
+        private const int CATEGORYPOS = 5;
         static readonly Dictionary<string, MXFShortKey> knownSymbols = SymbolDictionary.GetKeys();
         private bool ParamsInitiated = false;
         private MXFShortKey ul_key;
-
-        private MXFKey SoundfieldGroupLinkID_Key;
-
+        private MXFKey namespaceUri_Key; 
+        
         [SortedCategory(CATEGORYNAME, CATEGORYPOS)]
-        public MXFUUID SoundfieldGroupLinkID { get; set; }
-
-        public MXFAudioChannelLabelSubDescriptor(MXFReader reader, MXFKLV headerKLV)
-            : base(reader, headerKLV, "Audio Channel Label SubDescriptor")
-        {
-        }
-
-        public MXFAudioChannelLabelSubDescriptor(MXFReader reader, MXFKLV headerKLV, string name) : base(reader, headerKLV, name)
-        {
-        }
-
+        public string NamespaceURI { get; set; }
 
         /// <summary>
+        /// Constructor, set the correct descriptor name
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <param name="headerKLV"></param>
+        public MXFISXDDataEssenceDescriptor(MXFReader reader, MXFKLV headerKLV)
+            : base(reader, headerKLV, "ISXD Data Essence Descriptor")
+        {
+        }
+
+         /// <summary>
         /// Set ULs for all elements
         /// </summary>
         private void InitParms()
         {
-            if (knownSymbols.TryGetValue("SoundfieldGroupLinkID", out ul_key))
-                SoundfieldGroupLinkID_Key = new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key));
-
+            namespaceUri_Key = new MXFKey(0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x05, 0x0e, 0x09, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00);
             ParamsInitiated = true;
         }
 
@@ -70,12 +68,9 @@ namespace Myriadbits.MXF
         protected override bool ParseLocalTag(MXFReader reader, MXFLocalTag localTag)
         {
             if (!ParamsInitiated) InitParms();
-            if (localTag.Key != null)
+            switch (localTag.Tag)
             {
-                switch (localTag.Key)
-                {
-                    case var _ when localTag.Key == SoundfieldGroupLinkID_Key: this.SoundfieldGroupLinkID = reader.ReadUUIDKey(); return true;
-                }
+                case var _ when localTag.Key == namespaceUri_Key: this.NamespaceURI = reader.ReadUTF8String(localTag.Size); return true;
             }
             return base.ParseLocalTag(reader, localTag);
         }
