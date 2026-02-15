@@ -38,7 +38,8 @@ namespace Myriadbits.MXF
             {0x15, "GC Picture"},
             {0x16, "GC Sound"},
             {0x17, "GC Data"},
-            {0x18, "GC Compound"}
+            {0x18, "GC Compound"},
+            {0x01, "GC Data ISXD"},
         };
 
         [Category(CATEGORYNAME)]
@@ -83,7 +84,7 @@ namespace Myriadbits.MXF
                 this.ItemType = "<unknown>";
             this.IsPicture = (this.Key[12] == 0x05 || this.Key[12] == 0x15);
             this.IsSound = (this.Key[12] == 0x06 || this.Key[12] == 0x16);
-            this.IsData = (this.Key[12] == 0x07 || this.Key[12] == 0x17);
+            this.IsData = (this.Key[12] == 0x07 || this.Key[12] == 0x17 || this.Key[12] == 0x01);
             this.ElementCount = this.Key[13];
             this.ElementType = this.Key[14];
             this.ElementNumber = this.Key[15];

@@ -67,6 +67,7 @@ namespace Myriadbits.MXF
             dict.Add(new MXFKey(0x06, 0x0e, 0x2b, 0x34, 0x01, 0x02, 0x01, 0x01, 0x0d, 0x01, 0x03, 0x01, 0x15), typeof(MXFEssenceElement));
             dict.Add(new MXFKey(0x06, 0x0e, 0x2b, 0x34, 0x01, 0x02, 0x01, 0x01, 0x0d, 0x01, 0x03, 0x01, 0x16), typeof(MXFEssenceElement));
             dict.Add(new MXFKey(0x06, 0x0e, 0x2b, 0x34, 0x01, 0x02, 0x01, 0x01, 0x0d, 0x01, 0x03, 0x01, 0x18), typeof(MXFEssenceElement));
+            dict.Add(new MXFKey(0x06, 0x0e, 0x2b, 0x34, 0x01, 0x02, 0x01, 0x05, 0x0e, 0x09, 0x05, 0x02, 0x01), typeof(MXFEssenceElement)); // ISXD ST 2067-202
 
             // TODO cannot be found in SMPTE official registers ???
             // closest one: OrganizationallyRegisteredAsPrivate 	http://www.smpte-ra.org/reg/400/2012/14 	urn:smpte:ul:060e2b34.04010101.0e000000.00000000
@@ -215,6 +216,9 @@ namespace Myriadbits.MXF
 
             //ST 429-5 D-Cinema Timed Text
             if (knownSymbols.TryGetValue("DCTimedTextResourceSubDescriptor", out ul_key)) dict.Add(new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key, true)), typeof(MXFDCTimedTextResourceSubDescriptor));
+
+            // ST 2067-202 IMF ISXD
+            if (knownSymbols.TryGetValue("ISXDDataEssenceDescriptor", out ul_key)) dict.Add(new MXFKey(MXFKey.MXFShortKeytoByteArray(ul_key, true)), typeof(MXFISXDDataEssenceDescriptor));
 
             dict.Add(new MXFKey(0x06, 0x0e, 0x2b, 0x34, 0x02, 0x53, 0x01, 0x01, 0x0d, 0x01, 0x01, 0x01, 0x01, 0x01, 0x59, 0x00), typeof(MXFSubDescriptor));
 

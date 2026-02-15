@@ -39,7 +39,10 @@ namespace Myriadbits.MXF
 				case 0x0b: //TimedTextDataElement
 					this.AddChild(new MXFTimedTextDataElement(reader, headerKLV.Length));
 					break;
-				default:
+                case 0x01: //ISXDDataElement
+                    this.AddChild(new MXFISXDDataElement(reader, headerKLV.Length));
+                    break;
+                default:
 					for (int n = 0; n < nofPackets; n++)
 					{
 						MXFANCPacket newpacket = new MXFANCPacket(reader);
